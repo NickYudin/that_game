@@ -1,0 +1,31 @@
+<% if notice %>
+<div class="alert alert-success" role="alert"> <%= notice %></div>
+<% end %>
+<%= render @room %>
+
+
+  <% if @room.monster_in?%>
+    <p>
+      <strong>Monster:</strong>
+      <%= Monster.find(@room.monster_id).name %>
+    </p>
+    <%= button_to [:fight], class: "btn-danger" do%>
+      Kill him!
+    <% end %>
+  <%else%>
+    <p>
+      <strong>There are no monster</strong>
+    </p>
+  <% end %>
+
+
+  <% if @room.monster_defeated? %>
+    <%= button_to "Next", next_room, method: :get, class:"btn-dark shadow" %>
+  <% end %>
+  
+<div>
+  <%= link_to "Edit this room", edit_room_path(@room) %> |
+  <%= link_to "Back to rooms", rooms_path %>
+
+  <%= button_to "Destroy this room", @room, method: :delete %>
+</div>
