@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy fight ]
+  before_action :authenticate_user!
 
   # GET /rooms or /rooms.json
   def index
@@ -66,7 +67,7 @@ class RoomsController < ApplicationController
     @room.fighting
     if character.save && @room.save
       redirect_to @room
-      flash[:notice] = " !!!!!!!!!!!#{DiceRoller.call(2,6)}!!!!!!!!! you killed a #{@monster.name}!"
+      flash[:notice] = "You killed a #{@monster.name}!"
     end
   end
 

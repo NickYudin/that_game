@@ -1,5 +1,6 @@
 class MonstersController < ApplicationController
   before_action :set_monster, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[edit update destroy]
 
   # GET /monsters or /monsters.json
   def index

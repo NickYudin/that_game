@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_005441) do
+ActiveRecord::Schema.define(version: 2022_01_25_131859) do
+
+  create_table "admin_and_another_roles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.text "name"
@@ -22,15 +27,15 @@ ActiveRecord::Schema.define(version: 2022_01_17_005441) do
     t.integer "user_id"
   end
 
-  create_table "dices", force: :cascade do |t|
-    t.integer "face"
+  create_table "monsters", force: :cascade do |t|
+    t.text "name"
+    t.integer "power"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "monsters", force: :cascade do |t|
-    t.text "name"
-    t.integer "power"
+  create_table "roles", force: :cascade do |t|
+    t.string "roles"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_01_17_005441) do
     t.datetime "last_sign_in_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "character_id"
+    t.integer "role_id", default: 2
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
