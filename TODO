@@ -1,3 +1,0 @@
-delete column :character_id from user table
-add cancancan
-add items
