@@ -10,7 +10,7 @@
         <strong>Monster:</strong>
         <%= Monster.find(@room.monster_id).name %>
       </p>
-        <%= button_to [:fight], class: "btn-danger" do%>
+        <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
           Kill him!
         <% end %>
     <%else%>
@@ -22,7 +22,7 @@
 
 
   <% if @room.monster_defeated? %>
-    <%= button_to "Next", next_room, method: :get, class:"btn-dark shadow" %>
+    <%= button_to "Next", next_room, method: :get, class:"btn btn-dark shadow" %>
   <% end %>
   
 <% if can? :manage, @room %>
