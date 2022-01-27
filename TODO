@@ -1,0 +1,7 @@
++ delete column :character_id from user table
++ add cancancan
++/- add tests
+- add last_room for starting with last visited room on click 'jorney'
+- add items
+
+- add scopes for users
