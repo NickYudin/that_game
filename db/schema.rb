@@ -10,20 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_131859) do
-
-  create_table "admin_and_another_roles", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2022_01_27_075715) do
 
   create_table "characters", force: :cascade do |t|
     t.text "name"
-    t.integer "power"
+    t.integer "power", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "health"
-    t.integer "experiense"
+    t.integer "health", default: 0
+    t.integer "experiense", default: 0
     t.integer "user_id"
   end
 
