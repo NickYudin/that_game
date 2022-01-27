@@ -6,7 +6,7 @@ class User < ApplicationRecord
   belongs_to :role
   has_one :character
 
-  def is_admin?
+  def is_admin? #change with scope
     role.id == 1
   end
 
