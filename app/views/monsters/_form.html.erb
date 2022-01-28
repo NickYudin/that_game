@@ -17,8 +17,7 @@
   </div>
 
   <div>
-    <%= form.label :power, style: "display: block" %>
-    <%= form.number_field :power %>
+    <%= form.hidden_field :power, value: DiceRoller.call(1,4)   %>
   </div>
 
   <div>

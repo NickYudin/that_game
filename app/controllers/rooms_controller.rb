@@ -83,6 +83,7 @@ class RoomsController < ApplicationController
       params.require(:room).permit(:description, :monster_id)
     end
 
+    #restore monster when user enter new room
     def restore
       if !@room.monster_in? && current_user.last_room != @room.id
         @room.restore!

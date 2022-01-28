@@ -10,8 +10,5 @@ class User < ApplicationRecord
     role.id == 1
   end
 
-  def character_exist?
-    current_user.character != nil
-  end
 
 end

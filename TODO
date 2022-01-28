@@ -1,15 +1,17 @@
 + setup development enviroment
 	+ delete column :character_id from user table
 + add cancancan
+	- extend abilities 
 +/- add tests for existing code
 	+ add last_room for starting with last visited room on click 'jorney'
-	- add character_exist? method
+	+ add character_exist? method
 	- add scopes for users
 	- replase links(room/1 etc) to generic
 - add items
-- add stats
-	- add modifier
-	- add checks with DiceRoller & modificators
++ add stats
+	+ add modificator method
+	+/- add checks with DiceRoller & modificators
+
 - add treashure chests
 - add level-up mechanic
 
@@ -19,7 +21,7 @@ menthor's advices:
 + add rubocop
 + DiseRoller format
 + add faker to rspecs
-- add comments to selfmade methods
++/- add comments to selfmade methods
 + delete empty files (like helpers)
 + share TODO
 

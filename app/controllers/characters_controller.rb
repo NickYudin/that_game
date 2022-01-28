@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: %i[ show edit update destroy ]
+load_and_authorize_resource
+  before_action :set_character, only: %i[ show edit update destroy set_stats ]
 
   # GET /characters or /characters.json
   def index
@@ -22,9 +23,10 @@ class CharactersController < ApplicationController
   # POST /characters or /characters.json
   def create
     @character = Character.new(character_params)
-
     respond_to do |format|
       if @character.save
+        AbilityTable.create!(character_id: @character.id)
+        set_stats
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
       else
@@ -68,4 +70,11 @@ class CharactersController < ApplicationController
     def character_params
       params.require(:character).permit(:name, :power, :health, :experiense, :user_id)
     end
+
+    def set_stats
+      @character.health = DiceRoller.call(1,8).to_i + Modificator.call(@character.ability_table.constitution).to_i
+      @character.power = DiceRoller.call(1,4)
+      @character.save!
+    end
+
 end

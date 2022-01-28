@@ -19,6 +19,7 @@
     <li class="nav-item">
       <%="EXP #{current_user.character.experiense}" %>
     </li>
+      <%= render current_user.character.ability_table%>
     <% else %>
       <%= button_to "Create character", new_character_path, method: :get %>
     <% end %>
