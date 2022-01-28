@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[ show edit update destroy fight ]
-  before_action :authenticate_user!
+  before_action :set_room, only: %i[ show edit update destroy fight restore ]
+  before_action :restore, only: :show
 
   # GET /rooms or /rooms.json
   def index
@@ -81,5 +81,11 @@ class RoomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:description, :monster_id)
+    end
+
+    def restore
+      if !@room.monster_in? && current_user.last_room != @room.id
+        @room.restore!
+      end
     end
 end

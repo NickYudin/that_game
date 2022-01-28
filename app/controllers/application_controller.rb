@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
 
-helper_method :next_room
+  before_action :authenticate_user!
 
+  helper_method :next_room, :character_exist?
+
+  #generate next room for user
   def next_room
-  	@room.restore!
   	Room.all.sample
+  end
+
+  #check if user created a character yet
+  def character_exist?
+      current_user.character != nil
   end
 
 end
