@@ -9,6 +9,8 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
+    current_user.last_room = @room.id
+    current_user.save
   end
 
   # GET /rooms/new
@@ -59,7 +61,6 @@ class RoomsController < ApplicationController
   end
 
   def fight
-    
     character = current_user.character
     @monster = Monster.find(@room.monster_id)
     character.health -= @monster.power

@@ -1,7 +1,25 @@
-+ delete column :character_id from user table
++ setup development enviroment
+	+ delete column :character_id from user table
 + add cancancan
-+/- add tests
-- add last_room for starting with last visited room on click 'jorney'
++/- add tests for existing code
+	+ add last_room for starting with last visited room on click 'jorney'
+	- add character_exist? method
+	- add scopes for users
+	- replase links(room/1 etc) to generic
 - add items
+- add stats
+	- add modifier
+	- add checks with DiceRoller & modificators
+- add treashure chests
 
-- add scopes for users
+
+menthor's advices:
++ add .rvmrc
+	+ add gemset
++ add rubocop
++ DiseRoller format
++ add faker to rspecs
+- add comments to selfmade methods
++ delete empty files (like helpers)
++ share TODO
+

@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
   end
 
   # GET /characters/1 or /characters/1.json
-  def show
+  def show #one row
   end
 
   # GET /characters/new

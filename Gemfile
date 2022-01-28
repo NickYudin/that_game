@@ -26,6 +26,14 @@ gem 'aasm'
 gem 'after_commit_everywhere', '~> 1.0'
 gem 'devise'
 gem 'cancancan'
+gem 'faker'
+
+gem 'pry-rails'
+gem 'pry-byebug'
+
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
+
 
 
 # Use Active Storage variant
@@ -35,7 +43,6 @@ gem 'cancancan'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'pry'
   gem 'rspec-rails', '~> 5.0.0'
 
 end

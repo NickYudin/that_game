@@ -8,8 +8,7 @@ class MonstersController < ApplicationController
   end
 
   # GET /monsters/1 or /monsters/1.json
-  def show
-  end
+  def show; end
 
   # GET /monsters/new
   def new

@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_075715) do
+ActiveRecord::Schema.define(version: 2022_01_27_110524) do
+
+  create_table "admin_and_another_roles", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "characters", force: :cascade do |t|
     t.text "name"
@@ -55,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_075715) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role_id", default: 2
+    t.integer "last_room", default: 1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

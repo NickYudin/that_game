@@ -33,5 +33,7 @@ RSpec.describe Room, type: :model do
     it "changes to monster_in on restore" do
       expect(room).to transition_from(:monster_defeated).to(:monster_in).on_event(:restore)
     end
+
   end
+
 end
