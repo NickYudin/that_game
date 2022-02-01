@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @character %>
-
+<%= render  'ability_tables/form', ability_table: @character.ability_table %>
+<%= render 'skills/skill', skill: @character.ability_table.skill %>
 <div>
   <%= button_to "Destroy this character", @character, method: :delete %>
+</div>
+<div>
+  <%= link_to "Edit this character", edit_character_path %>
 </div>

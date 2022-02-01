@@ -1,0 +1,43 @@
+<%= form_with(model: ability_table) do |form| %>
+
+  <div>
+    <%= form.label :strength, style: "display: block" %>
+    <%= form.number_field :strength %>
+  </div>
+
+  <div>
+    <%= form.label :dexterity, style: "display: block" %>
+    <%=  "#{ability_table.dexterity}" %>
+
+  </div>
+
+
+  <div>
+    <%= form.label :constitution, style: "display: block" %>
+    <%= form.number_field :constitution %>
+  </div>
+
+
+  <div>
+    <%= form.label :intelligence, style: "display: block" %>
+    <%= form.number_field :intelligence %>
+  </div>
+
+
+  <div>
+    <%= form.label :wisdom, style: "display: block" %>
+    <%= form.number_field :wisdom %>
+  </div>
+
+
+  <div>
+    <%= form.label :charisma, style: "display: block" %>
+    <%= form.number_field :charisma %>
+  </div>
+  <div>
+    <% form.hidden_field :character_id, value: current_user.character.id %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

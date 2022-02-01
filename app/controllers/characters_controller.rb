@@ -8,8 +8,7 @@ load_and_authorize_resource
   end
 
   # GET /characters/1 or /characters/1.json
-  def show #one row
-  end
+  def show; end
 
   # GET /characters/new
   def new
@@ -25,7 +24,7 @@ load_and_authorize_resource
     @character = Character.new(character_params)
     respond_to do |format|
       if @character.save
-        AbilityTable.create!(character_id: @character.id)
+        AbilityTable.create(character_id: @character.id)
         set_stats
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
         format.json { render :show, status: :created, location: @character }
@@ -71,6 +70,7 @@ load_and_authorize_resource
       params.require(:character).permit(:name, :power, :health, :experiense, :user_id)
     end
 
+    #stub method for dev needs (will be replaced for generic)
     def set_stats
       @character.health = DiceRoller.call(1,8).to_i + Modificator.call(@character.ability_table.constitution).to_i
       @character.power = DiceRoller.call(1,4)

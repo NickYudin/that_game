@@ -1,4 +1,4 @@
-<ul class="nav flex-column">
+<ul id="left_menu" class="nav flex-column">
   <% if current_user %>
     <li class="nav-item">
       <%=  current_user.email %>
@@ -19,7 +19,7 @@
     <li class="nav-item">
       <%="EXP #{current_user.character.experiense}" %>
     </li>
-      <%= render current_user.character.ability_table%>
+      <%= render current_user.character.ability_table if current_user.character.ability_table%>
     <% else %>
       <%= button_to "Create character", new_character_path, method: :get %>
     <% end %>

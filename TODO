@@ -15,6 +15,13 @@
 - add treashure chests
 - add level-up mechanic
 
+mailn:
+	- Create Character's Scheet app
+		Add maximum functionality fo creating perfect character's sheet for D'n'D 5e
+		*parse data from open sourses
+		*create corresponding db
+		*printout of the resulting pdf
+
 menthor's advices:
 + add .rvmrc
 	+ add gemset
