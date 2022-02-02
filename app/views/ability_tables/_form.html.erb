@@ -1,43 +1,47 @@
-<%= form_with(model: ability_table) do |form| %>
+<%= turbo_frame_tag @todo do %>
+  <td><%= button_to '+', { :controller => "ability_tables", :action => "add_point", :strength => "#{ability_table.strength+1}".to_i, :id=> ability_table.id} , :model => ability_table, :method=>:post  %></td>
 
-  <div>
-    <%= form.label :strength, style: "display: block" %>
-    <%= form.number_field :strength %>
-  </div>
+  <%= form_with(model: ability_table) do |form| %>
+    <div>
+      <%= form.label :strength, style: "display: block" %>
+      <%= form.number_field :strength %>
+    </div>
 
-  <div>
-    <%= form.label :dexterity, style: "display: block" %>
-    <%=  "#{ability_table.dexterity}" %>
+    <div>
+      <%= form.label :dexterity, style: "display: block" %>
+      <%= form.number_field :dexterity %>
 
-  </div>
-
-
-  <div>
-    <%= form.label :constitution, style: "display: block" %>
-    <%= form.number_field :constitution %>
-  </div>
+    </div>
 
 
-  <div>
-    <%= form.label :intelligence, style: "display: block" %>
-    <%= form.number_field :intelligence %>
-  </div>
+    <div>
+      <%= form.label :constitution, style: "display: block" %>
+      <%= form.number_field :constitution %>
+    </div>
 
 
-  <div>
-    <%= form.label :wisdom, style: "display: block" %>
-    <%= form.number_field :wisdom %>
-  </div>
+    <div>
+      <%= form.label :intelligence, style: "display: block" %>
+      <%= form.number_field :intelligence %>
+    </div>
 
 
-  <div>
-    <%= form.label :charisma, style: "display: block" %>
-    <%= form.number_field :charisma %>
-  </div>
-  <div>
-    <% form.hidden_field :character_id, value: current_user.character.id %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
+    <div>
+      <%= form.label :wisdom, style: "display: block" %>
+      <%= form.number_field :wisdom %>
+    </div>
+
+
+    <div>
+      <%= form.label :charisma, style: "display: block" %>
+      <%= form.number_field :charisma %>
+    </div>
+    <div>
+      <% form.hidden_field :character_id, value: current_user.character.id %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
 <% end %>
+

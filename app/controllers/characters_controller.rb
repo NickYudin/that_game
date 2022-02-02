@@ -26,7 +26,7 @@ load_and_authorize_resource
       if @character.save
         AbilityTable.create(character_id: @character.id)
         set_stats
-        format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
+        format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
         format.html { render :new, status: :unprocessable_entity }

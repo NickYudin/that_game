@@ -1,1 +1,5 @@
-<%= skill %>
+<% SkillsHash.call.each_key do |s| %>
+	<%= s.to_s.humanize%>
+	<%= skill.public_send(s) %>
+</br>
+<% end %>

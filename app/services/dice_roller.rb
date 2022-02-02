@@ -8,7 +8,7 @@ class DiceRoller < ApplicationService
 
 	def call
 		result = 0
-		@qty.times { @result += rand(1..@face) }
+		@qty.times { result += rand(1..@face) }
 		result
 	end
 
