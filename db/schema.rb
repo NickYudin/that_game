@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_120347) do
+ActiveRecord::Schema.define(version: 2022_02_03_152136) do
 
   create_table "ability_tables", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2022_02_03_120347) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "char_classes", force: :cascade do |t|
+    t.string "name"
+    t.integer "hit_dice_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "characters", force: :cascade do |t|
     t.text "name"
     t.integer "level", default: 1
@@ -38,6 +45,14 @@ ActiveRecord::Schema.define(version: 2022_02_03_120347) do
     t.integer "health", default: 0
     t.integer "experiense", default: 0
     t.integer "user_id"
+    t.integer "char_class_id"
+    t.integer "max_health", default: 0
+  end
+
+  create_table "hit_dices", force: :cascade do |t|
+    t.integer "face"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "monsters", force: :cascade do |t|

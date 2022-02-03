@@ -67,13 +67,13 @@ load_and_authorize_resource
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :power, :health, :experiense, :user_id)
+      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health)
     end
 
     #stub method for dev needs (will be replaced for generic)
     def set_stats
-      @character.health = DiceRoller.call(1,8).to_i + Modificator.call(@character.ability_table.constitution).to_i
-      @character.power = DiceRoller.call(1,4)
+      @character.max_health += HitIncrease.call(@character)
+      @character.health = @character.max_health
       @character.save!
     end
 
