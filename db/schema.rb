@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_095259) do
+ActiveRecord::Schema.define(version: 2022_02_03_120347) do
 
   create_table "ability_tables", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_095259) do
 
   create_table "characters", force: :cascade do |t|
     t.text "name"
-    t.integer "power", default: 0
+    t.integer "level", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "health", default: 0

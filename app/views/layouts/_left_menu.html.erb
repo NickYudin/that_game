@@ -11,7 +11,7 @@
       <%= button_to "Your character",  current_user.character, method: :get, class: "btn btn-md btn-dark" %>
     </li>
     <li class="nav-item">
-      <%= "PWR #{current_user.character.power}" %>
+      <%= "LVL #{current_user.character.level}" %>
     </li>
     <li class="nav-item">
       <%= "HP  #{current_user.character.health}" %>

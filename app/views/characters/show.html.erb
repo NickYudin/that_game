@@ -1,18 +1,21 @@
-
-<%= render @character %>
-
-  <% if @character.ability_table.free_points > 0%> 
-    <%= render  'ability_tables/form', ability_table: @character.ability_table %>
-  <% else %>
-    <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
-  <% end %>
-  <% if @character.ability_table.skill %>
-    <%= render 'skills/skill', skill: @character.ability_table.skill %>
-  <% end %>
-
-<div>
-  <%= button_to "Destroy this character", @character, method: :delete %>
-</div>
-<div>
-  <%= link_to "Edit this character", edit_character_path %>
+<div class="container">
+    <%= render @character %>
+    <%= link_to "Change name", edit_character_path %>
+  <div class="row">
+    <div class="col">
+      <% if @character.ability_table.free_points > 0%> 
+        <%= render  'ability_tables/form', ability_table: @character.ability_table %>
+      <% else %>
+        <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
+      <% end %>
+    </div>
+    <div class="col">    
+      <% if @character.ability_table.skill %>
+        <%= render 'skills/skill', skill: @character.ability_table.skill %>
+      <% end %>
+    </div>
+    <div class="pt-2">
+      <%= button_to "Destroy this character", @character, method: :delete %>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 class SkillsHash < ApplicationService
 
+ #shows skill's dependence on ability
   def call
     hh = {
           athletics: :strength,

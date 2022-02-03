@@ -1,8 +1,7 @@
 class AbilityTablesController < ApplicationController
 
-  before_action :set_ability_table, only: %i[ update set_skills  ]
-  before_action :set_character, only: %i[ create update ]
-  before_action :set_skills, only: :update
+  before_action :set_ability_table, only: %i[ update ]
+  before_action :set_character, only: %i[ create update add_point ]
 
   def new
     @ability_table = AbilityTable.new
@@ -26,7 +25,6 @@ class AbilityTablesController < ApplicationController
   def update
     respond_to do |format|
       if @ability_table.update(ability_table_params)
-        BasicAttribute.call(@ability_table)
         format.html { redirect_to character_url(@character), notice: "Character was successfully updated." }
         format.json { render :show, status: :ok, location: @character }
       else
@@ -39,15 +37,17 @@ class AbilityTablesController < ApplicationController
   def add_point
     @ability_table = AbilityTable.find(params[:id])
     @ability_table.free_points -=1
-    if @ability_table.update!(params.permit(
+    set_skills
+    @ability_table.update!(params.permit(
                                         :strength,
                                         :dexterity,
                                         :constitution,
                                         :intelligence,
                                         :wisdom,
                                         :charisma
-                                        )){ redirect_to character_url(@character), notice: "Character was successfully updated." }
-  end
+                                        ))
+    BasicAttribute.call(@ability_table)
+    redirect_to character_url(@character)
   end
 
   private

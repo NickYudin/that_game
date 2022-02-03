@@ -1,5 +1,14 @@
-<% SkillsHash.call.each_key do |s| %>
-	<%= s.to_s.humanize%>
-	<%= skill.public_send(s) %>
-</br>
-<% end %>
+<table>
+	<% SkillsHash.call.each_key do |s| %>
+	<tr>
+		<td><%= s.to_s.humanize%></td>
+		<td class="text-center">
+			<% if skill.public_send(s) > 0 %>
+			+ 
+			<% end %>
+			<%= skill.public_send(s) %>
+		</td>
+	</tr>
+
+	<% end %>
+</table>

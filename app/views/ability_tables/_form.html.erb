@@ -1,47 +1,18 @@
-<%= turbo_frame_tag @todo do %>
-  <td><%= button_to '+', { :controller => "ability_tables", :action => "add_point", :strength => "#{ability_table.strength+1}".to_i, :id=> ability_table.id} , :model => ability_table, :method=>:post  %></td>
-
-  <%= form_with(model: ability_table) do |form| %>
-    <div>
-      <%= form.label :strength, style: "display: block" %>
-      <%= form.number_field :strength %>
+<div class="container p-2">
+  <div>
+    Free points:
+    <%=  @character.ability_table.free_points %>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <%= render 'ability_tables/add_point_button', ability: :strength %>
+      <%= render 'ability_tables/add_point_button', ability: :dexterity %>
+      <%= render 'ability_tables/add_point_button', ability: :constitution %>
+      <%= render 'ability_tables/add_point_button', ability: :intelligence %>
+      <%= render 'ability_tables/add_point_button', ability: :wisdom %>
+      <%= render 'ability_tables/add_point_button', ability: :charisma %>
     </div>
-
-    <div>
-      <%= form.label :dexterity, style: "display: block" %>
-      <%= form.number_field :dexterity %>
-
+    <div class="col-3">
+    <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
     </div>
-
-
-    <div>
-      <%= form.label :constitution, style: "display: block" %>
-      <%= form.number_field :constitution %>
-    </div>
-
-
-    <div>
-      <%= form.label :intelligence, style: "display: block" %>
-      <%= form.number_field :intelligence %>
-    </div>
-
-
-    <div>
-      <%= form.label :wisdom, style: "display: block" %>
-      <%= form.number_field :wisdom %>
-    </div>
-
-
-    <div>
-      <%= form.label :charisma, style: "display: block" %>
-      <%= form.number_field :charisma %>
-    </div>
-    <div>
-      <% form.hidden_field :character_id, value: current_user.character.id %>
-    </div>
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
-<% end %>
-
+</div>

@@ -1,6 +1,6 @@
 class DiceRoller < ApplicationService
 
-
+	# mimic usual dises (qty- number of dices, face - max value of dice)
 	def initialize (qty, face)
 		@qty = qty
 		@face = face
