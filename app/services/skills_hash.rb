@@ -12,6 +12,7 @@ class SkillsHash < ApplicationService
           investigation: :intelligence,
           nature: :intelligence,
           religion: :intelligence,
+          perception: :intelligence,
           animal_handling: :wisdom,
           insight: :wisdom,
           medicine: :wisdom,

@@ -15,9 +15,9 @@
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-    <div>
-    <%= form.label "Class", style: "display: block" %>
-    <%= form.number_field :char_class_id %>
+  <div>
+    <%= form.select :char_class_id,  CharClass.all.map {|clas| [clas.name, clas.id]}, {} %>
+
   </div>
 
   <div>

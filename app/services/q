@@ -1,0 +1,99 @@
+=> [32m#<CharClassParser:0x0000560bbef33b88[0m
+ @page[32m=[0m
+  [32m#<Mechanize::Page[0m
+   {url [32m#<URI::HTTPS https://www.dandwiki.com/wiki/5e_SRD:Classes>[0m}
+   {meta_refresh}
+   {title [31m[1;31m"[0m[31m5e SRD:Classes - D&D Wiki[1;31m"[0m[31m[0m}
+   {iframes}
+   {frames}
+   {links
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m[1;31m"[0m[31m[0m [1;36mnil[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mnavigation[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m#column-one[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31msearch[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m#searchInput[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mOGL[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Open_Game_License_v1.0a[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mBarbarian[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Barbarian[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mBard[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Bard[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mCleric[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Cleric[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mDruid[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Druid[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mFighter[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Fighter[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mMonk[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Monk[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPaladin[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Paladin[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRanger[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Ranger[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRogue[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Rogue[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mSorcerer[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Sorcerer[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mWarlock[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Warlock[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mWizard[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Wizard[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mMain Page[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Main_Page[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e System Reference Document[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPadlock.png[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/File:Padlock.png[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mdiscussion[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=5e_SRD_talk:Classes&action=edit&redlink=1[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mStop hand.png[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/File:Stop_hand.png[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e System Reference Document[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mOpen Game License v1.0a[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Open_Game_License_v1.0a[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mGNU Free Documentation License 1.3[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/GNU_Free_Documentation_License_1.3[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mSRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31madmin[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:ListAdmins[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mhttps://www.dandwiki.com/w/index.php?title=5e_SRD:Classes&oldid=1547243[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://www.dandwiki.com/w/index.php?title=5e_SRD:Classes&oldid=1547243[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mCategories[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:Categories[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mOGL[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Category:OGL[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mSRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Category:SRD[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Category:5e[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRule[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Category:Rule[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mClass[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Category:Class[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:Classes[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mDiscussion[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=5e_SRD_talk:Classes&action=edit&redlink=1[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mView source[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=5e_SRD:Classes&action=edit[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mHistory[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=5e_SRD:Classes&action=history[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mTalk[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:MyTalk[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mContributions[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:MyContributions[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mCreate account[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=Special:CreateAccount&returnto=5e+SRD%3AClasses[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mLog in[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=Special:UserLogin&returnto=5e+SRD%3AClasses[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Main_Page[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mMain Page[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Main_Page[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRecent Changes[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:RecentChanges[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mHelp Portal[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Help:Portal[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_Homebrew[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m4e Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/4e_Homebrew[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m3.5e Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/3.5e_Homebrew[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m2.5e Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/2.5e_Homebrew[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPathfinder Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Pathfinder_Homebrew[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31md20M Homebrew[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/D20_Modern[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m3.5e SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m3.5e UA[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/UA:Variant_Rules[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m3e SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/3e_SRD:System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPathfinder SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/PFSRD:Pathfinder_System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mModern SRD[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/MSRD:Modern_System_Reference_Document[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mAll 3rd-Party OGC[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/OGC:Main[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m5e OGC[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/5e_Open_Game_Content[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m3.5e OGC[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/3.5e_Open_Game_Content[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPathfinder OGC[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Pathfinder_Open_Game_Content[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mTavern Chatroom[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:Chat[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mOfficial Discord Server[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://discord.gg/EnsRxSV[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mFacebook[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://www.facebook.com/Dandwiki/[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mUser Email[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:DDMailManagementa[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPublications[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Publication_List[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRandom page[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:Random[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mDonations[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/D%26D_Wiki:Site_support[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mWhat links here[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:WhatLinksHere/5e_SRD:Classes[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mRelated changes[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:RecentChangesLinked/5e_SRD:Classes[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mSpecial pages[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/Special:SpecialPages[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPrintable version[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mjavascript:print();[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPermanent link[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/w/index.php?title=5e_SRD:Classes&oldid=1547243[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31m[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://discord.gg/EnsRxSV[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPowered by MediaWiki[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://www.mediawiki.org/[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mGNU Free Documentation License 1.3[1;31m"[0m[31m[0m [31m[1;31m"[0m[31mhttps://www.gnu.org/copyleft/fdl.html[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mGNU Free Documentation License 1.3[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/GNU_Free_Documentation_License 1.3[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mPrivacy policy[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/D%26D_Wiki:Privacy_policy[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mAbout D&D Wiki[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/D%26D_Wiki:About[1;31m"[0m[31m[0m[32m>[0m
+    [32m#<Mechanize::Page::Link[0m [31m[1;31m"[0m[31mDisclaimers[1;31m"[0m[31m[0m [31m[1;31m"[0m[31m/wiki/D%26D_Wiki:General_disclaimer[1;31m"[0m[31m[0m[32m>[0m}
+   {forms
+    [32m#<Mechanize::Form[0m
+     {name [1;36mnil[0m}
+     {method [31m[1;31m"[0m[31mGET[1;31m"[0m[31m[0m}
+     {action [31m[1;31m"[0m[31m/w/index.php[1;31m"[0m[31m[0m}
+     {fields [[35mhidden[0m:[1;34m0xbcac[0m [35mtype[0m: hidden [35mname[0m: title [35mvalue[0m: [35mSpecial[0m:[1;34;4mSearch[0m] [[35mtext[0m:[1;34m0xbcc0[0m [35mtype[0m: text [35mname[0m: search [35mvalue[0m: ]}
+     {radiobuttons}
+     {checkboxes}
+     {file_uploads}
+     {buttons [[35msubmit[0m:[1;34m0xbcd4[0m [35mtype[0m: submit [35mname[0m: go [35mvalue[0m: [1;34;4mGo[0m] [[35msubmit[0m:[1;34m0xbce8[0m [35mtype[0m: submit [35mname[0m: fulltext [35mvalue[0m: [1;34;4mSearch[0m]}[32m>[0m}[32m>[0m[32m>[0m

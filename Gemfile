@@ -27,6 +27,7 @@ gem 'after_commit_everywhere', '~> 1.0'
 gem 'devise'
 gem 'cancancan'
 gem 'faker'
+gem 'mechanize'
 
 gem 'pry-rails'
 gem 'pry-byebug'

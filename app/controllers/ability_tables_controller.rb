@@ -34,10 +34,11 @@ class AbilityTablesController < ApplicationController
     end
   end
 
+  #adds point to selected ability by using corresponding button in front-end
   def add_point
     @ability_table = AbilityTable.find(params[:id])
-    @ability_table.free_points -=1
     set_skills
+    @ability_table.free_points -=1
     @ability_table.update!(params.permit(
                                         :strength,
                                         :dexterity,
@@ -47,6 +48,7 @@ class AbilityTablesController < ApplicationController
                                         :charisma
                                         ))
     BasicAttribute.call(@ability_table)
+    Health.call(@character) if @character.ability_table.free_points == 0
     redirect_to character_url(@character)
   end
 

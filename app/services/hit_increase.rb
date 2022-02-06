@@ -1,5 +1,5 @@
 class HitIncrease < ApplicationService
-
+  #sets up basic value of HP in feture will be used for "short rest" and "full rest"
   def initialize(character)
     @character = character
     @level = character.level
