@@ -4,16 +4,35 @@
 	- extend abilities 
 +/- add tests for existing code
 	+ add last_room for starting with last visited room on click 'jorney'
+		remove this functionality to character model
 	+ add character_exist? method
-	- add scopes for users
-	- replase links(room/1 etc) to generic
-- add items
+- add scopes for users
+- replase links(room/1 etc) to generic
 + add stats
 	+ add modificator method
 	+/- add checks with DiceRoller & modificators
 
+main tasks:
+	- Create Character's Scheet app (www.dndbeyond.com - reference)
+		Add maximum functionality fo creating perfect character's sheet for D'n'D 5e
+		*parse data from open sourses 
+			+classes
+			+- races
+			items:
+				weapon
+				armor
+				potions
+		*create corresponding db with dependencies
+		*add more complex calculator for modificator (depends on race, class and items) (**maybe replace one table with individual for each modificator)
+		*add random name generator
+		*adding images on fly
+		*add hotwire to interface (entire process of creating character's sheet in one window)
+		*printout of the resulting pdf (**various variants of views)
+
 - add treashure chests
+- add more complicated generator for rooms and monsters in it
 - add level-up mechanic
+- add fighting mechanic with dice-rolling and include new character's stats
 
 menthor's advices:
 + add .rvmrc
@@ -24,4 +43,3 @@ menthor's advices:
 +/- add comments to selfmade methods
 + delete empty files (like helpers)
 + share TODO
-
