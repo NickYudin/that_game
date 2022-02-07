@@ -16,8 +16,8 @@ main tasks:
 	- Create Character's Scheet app (www.dndbeyond.com - reference)
 		Add maximum functionality fo creating perfect character's sheet for D'n'D 5e
 		*parse data from open sourses 
-			+classes
-			+- races
+			+ classes
+			+ races
 			items:
 				weapon
 				armor
