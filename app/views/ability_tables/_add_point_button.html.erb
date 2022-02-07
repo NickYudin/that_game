@@ -1,0 +1,8 @@
+<td><%= button_to '+', { 
+                          :controller => "ability_tables",
+                          :action => "add_point",
+                          ability => "#{@character.ability_table.public_send(ability)+1}".to_i,
+                          :id=> @character.ability_table.id
+                        }, 
+                          :model => @character.ability_table, :method=>:post  %> 
+</td>

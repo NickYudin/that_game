@@ -1,0 +1,104 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+  Exclude:
+    - 'config/initializers/**'
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'lib/templates/rails/scaffold_controller/**'
+
+
+Style/Documentation:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Layout/LineLength:
+  Max: 185
+Metrics/MethodLength:
+  Max: 20
+Style/NumericPredicate:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Max: 10
+RSpec/StubbedMock:
+  Enabled: false
+Metrics/ModuleLength:
+  Exclude:
+    - 'app/controllers/concerns/telegram/preorder.rb'
+Metrics/ClassLength:
+  Exclude:
+    - 'app/controllers/telegram_webhook_controller.rb'
+Metrics/AbcSize:
+  Max: 21
+  Exclude:
+    - 'app/controllers/telegram_webhook_controller.rb'
+    - 'app/controllers/concerns/telegram/admin_commands.rb'
+    - 'app/services/products/xlsx_uploader.rb'
+    - 'app/controllers/statistic/orders_controller.rb'
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/concerns/telegram/admin_commands.rb'
+    - 'app/controllers/concerns/telegram/preorder.rb'
+Layout/ArgumentAlignment:
+  Enabled: false
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Layout/FirstHashElementIndentation:
+  Exclude:
+    - 'app/controllers/concerns/telegram/admin_commands.rb'
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'app/services/telegram_bot/contact_shared_handler.rb'
+RSpec/ImplicitBlockExpectation:
+  Enabled: false
+RSpec/ImplicitSubject:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/EmptyExampleGroup:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/MessageChain:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
+Naming/InclusiveLanguage:
+  Enabled: false
+RSpec/FilePath:
+  Exclude:
+    - 'spec/controllers/concerns/telegram/third_party_apis_commands_spec.rb'
+    - 'spec/controllers/concerns/telegram/admin_commands_spec.rb'
+RSpec/DescribeMethod:
+  Exclude:
+    - 'spec/controllers/concerns/telegram/third_party_apis_commands_spec.rb'
+    - 'spec/controllers/concerns/telegram/admin_commands_spec.rb'
