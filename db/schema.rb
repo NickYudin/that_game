@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_100858) do
+ActiveRecord::Schema.define(version: 2022_02_05_061903) do
 
   create_table "ability_tables", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_01_28_100858) do
     t.integer "charisma", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "free_points", default: 10
   end
 
   create_table "admin_and_another_roles", force: :cascade do |t|
@@ -29,14 +30,29 @@ ActiveRecord::Schema.define(version: 2022_01_28_100858) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "char_classes", force: :cascade do |t|
+    t.string "name"
+    t.integer "hit_dice_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "characters", force: :cascade do |t|
     t.text "name"
-    t.integer "power", default: 0
+    t.integer "level", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "health", default: 0
     t.integer "experiense", default: 0
     t.integer "user_id"
+    t.integer "char_class_id"
+    t.integer "max_health", default: 0
+  end
+
+  create_table "hit_dices", force: :cascade do |t|
+    t.integer "face"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "monsters", force: :cascade do |t|
@@ -60,6 +76,31 @@ ActiveRecord::Schema.define(version: 2022_01_28_100858) do
     t.string "aasm_state"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.integer "athletics"
+    t.integer "acrobatics"
+    t.integer "sleight_of_hand"
+    t.integer "stealth"
+    t.integer "arcana"
+    t.integer "history"
+    t.integer "investigation"
+    t.integer "nature"
+    t.integer "religion"
+    t.integer "animal_handling"
+    t.integer "insight"
+    t.integer "medicine"
+    t.integer "survival"
+    t.integer "deception"
+    t.integer "intimidation"
+    t.integer "performance"
+    t.integer "persuasion"
+    t.integer "ability_table_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "perception", default: 10
+    t.index ["ability_table_id"], name: "index_skills_on_ability_table_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email", default: "", null: false
@@ -78,4 +119,5 @@ ActiveRecord::Schema.define(version: 2022_01_28_100858) do
   end
 
   add_foreign_key "ability_tables", "characters"
+  add_foreign_key "skills", "ability_tables"
 end

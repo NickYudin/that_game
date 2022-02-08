@@ -8,8 +8,7 @@ load_and_authorize_resource
   end
 
   # GET /characters/1 or /characters/1.json
-  def show #one row
-  end
+  def show; end
 
   # GET /characters/new
   def new
@@ -25,9 +24,9 @@ load_and_authorize_resource
     @character = Character.new(character_params)
     respond_to do |format|
       if @character.save
-        AbilityTable.create!(character_id: @character.id)
-        set_stats
-        format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
+        AbilityTable.create(character_id: @character.id)
+      #need to set_stats after all ability.free_points distributed
+        format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +51,6 @@ load_and_authorize_resource
   # DELETE /characters/1 or /characters/1.json
   def destroy
     @character.destroy
-
     respond_to do |format|
       format.html { redirect_to characters_url, notice: "Character was successfully destroyed." }
       format.json { head :no_content }
@@ -68,13 +66,7 @@ load_and_authorize_resource
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :power, :health, :experiense, :user_id)
-    end
-
-    def set_stats
-      @character.health = DiceRoller.call(1,8).to_i + Modificator.call(@character.ability_table.constitution).to_i
-      @character.power = DiceRoller.call(1,4)
-      @character.save!
+      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health)
     end
 
 end

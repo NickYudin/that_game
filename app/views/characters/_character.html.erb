@@ -1,20 +1,28 @@
 <div id="<%= dom_id character %>">
   <p class="text-warning">
     <strong>Name:</strong>
-    <%= character.name %>
+    <%= character.name.to_s %>
+  </p>
+  <p>
+      <strong>Class:</strong>
+      <%= character.char_class.name %>
   </p>
 
   <p>
-    <strong>Power:</strong>
-    <%= character.power %>
+    <strong>Level:</strong>
+    <%= character.level %>
   </p>
 
 
   <p>
-    <strong>HP:</strong>
+    <strong>Max HP:</strong>
+    <%= character.max_health %>
+  </p>
+
+  <p>
+    <strong>Current HP:</strong>
     <%= character.health %>
   </p>
-
 
   <p>
     <strong>EXP:</strong>
