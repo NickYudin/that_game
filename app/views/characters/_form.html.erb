@@ -17,9 +17,10 @@
   </div>
   <div>
     <%= form.select :char_class_id,  CharClass.all.map {|clas| [clas.name, clas.id]}, {} %>
-
   </div>
-
+  <div>
+    <%= form.select :race_id,  Race.all.map {|race| [race.name, race.id]}, {} %>
+  </div>
   <div>
     <%= form.hidden_field :user_id, value: current_user.id   %>
   </div>

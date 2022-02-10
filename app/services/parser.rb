@@ -37,7 +37,8 @@ class ChRace
     hh = {
           name: racename,
           speed: speed,
-          ability_score_increase: ability_score_increase
+          race_increase: ability_score_increase,
+          special_rule: @special_rule
         }
   end
 
@@ -55,7 +56,20 @@ class ChRace
     @hh = {}
     asi.map do |m|
       kek = m.split(' ')
-      @hh[kek[1].downcase.to_sym] = kek.last.to_i
+      if kek[1] == "other"
+        @special_rule = "add_free_points"
+      elsif kek[1] == "ability"
+      @hh = {
+              strength: 1,
+              dexterity: 1,
+              constitution: 1,
+              intelligence: 1,
+              wisdom: 1,
+              charisma: 1
+            }
+      else
+        @hh[kek[1].downcase.to_sym] = kek.last.to_i
+      end
     end
     @hh
   end
@@ -72,9 +86,9 @@ class ChCl
 
   def call
     hh = {
-            name: classname,
-            hit_dice_id: hit_dice_id
-          }
+          name: classname,
+          hit_dice_id: hit_dice_id
+        }
   end
 
   def classname

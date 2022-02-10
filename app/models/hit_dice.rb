@@ -1,5 +1,5 @@
 class HitDice < ApplicationRecord
 
-  belongs_to :char_class
+  has_many :char_class
 
 end

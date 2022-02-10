@@ -25,7 +25,20 @@ load_and_authorize_resource
     respond_to do |format|
       if @character.save
         AbilityTable.create(character_id: @character.id)
-      #need to set_stats after all ability.free_points distributed
+        at = @character.ability_table
+        increase = @character.race.race_increase
+        #future task: create separate method to do this more clearly:
+        at.update(
+                  :strength => at.strength + increase.strength,
+                  :dexterity => at.dexterity + increase.dexterity,
+                  :constitution => at.constitution + increase.constitution,
+                  :intelligence => at.intelligence + increase.intelligence,
+                  :wisdom => at.wisdom + increase.wisdom,
+                  :charisma => at.charisma + increase.charisma
+                  )
+        at.free_points += 2 if at.character.race.name == "Half-Elf"
+        at.save!
+
         format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
@@ -66,7 +79,7 @@ load_and_authorize_resource
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health)
+      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id)
     end
 
 end

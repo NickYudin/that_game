@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_061903) do
+ActiveRecord::Schema.define(version: 2022_02_09_115420) do
 
   create_table "ability_tables", force: :cascade do |t|
     t.integer "character_id", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_061903) do
     t.integer "user_id"
     t.integer "char_class_id"
     t.integer "max_health", default: 0
+    t.integer "race_id"
   end
 
   create_table "hit_dices", force: :cascade do |t|
@@ -58,6 +59,26 @@ ActiveRecord::Schema.define(version: 2022_02_05_061903) do
   create_table "monsters", force: :cascade do |t|
     t.text "name"
     t.integer "power"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "race_increases", force: :cascade do |t|
+    t.integer "race_id"
+    t.integer "strength", default: 0
+    t.integer "dexterity", default: 0
+    t.integer "constitution", default: 0
+    t.integer "intelligence", default: 0
+    t.integer "wisdom", default: 0
+    t.integer "charisma", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.integer "speed", default: 10
+    t.string "special_rule"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

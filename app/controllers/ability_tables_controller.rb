@@ -1,6 +1,6 @@
 class AbilityTablesController < ApplicationController
 
-  before_action :set_ability_table, only: %i[ update ]
+  before_action :set_ability_table, only: %i[ update add_point add_free_points]
   before_action :set_character, only: %i[ create update add_point ]
 
   def new
@@ -36,7 +36,6 @@ class AbilityTablesController < ApplicationController
 
   #adds point to selected ability by using corresponding button in front-end
   def add_point
-    @ability_table = AbilityTable.find(params[:id])
     set_skills
     @ability_table.free_points -=1
     @ability_table.update!(params.permit(
@@ -49,7 +48,7 @@ class AbilityTablesController < ApplicationController
                                         ))
     BasicAttribute.call(@ability_table)
     Health.call(@character) if @character.ability_table.free_points == 0
-    redirect_to character_url(@character)
+    redirect_to @character
   end
 
   private
@@ -78,5 +77,6 @@ class AbilityTablesController < ApplicationController
   def set_skills
     Skill.create!(ability_table_id: @ability_table.id) if @ability_table.skill.nil?
   end
+
 
 end
