@@ -8,7 +8,7 @@ class HitIncrease < ApplicationService
 
   def call
     if @level = 1
-      @class.hit_dice.face
+      @class.hit_dice.face  + Modificator.call(@character.constitution)
     else
       healing_surge
     end
