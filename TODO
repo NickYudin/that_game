@@ -25,7 +25,7 @@ main tasks:
 		*create corresponding db with dependencies
 		*add more complex calculator for modificator (depends on race, class and items) (**maybe replace one table with individual for each modificator)
 		*add random name generator
-		*adding images on fly
+		*adding images on fly (avatars, using AWS)
 		*add hotwire to interface (entire process of creating character's sheet in one window)
 		*printout of the resulting pdf (**various variants of views)
 
@@ -44,11 +44,8 @@ menthor's advices:
 + delete empty files (like helpers)
 + share TODO
 
-add_reference
-tabs to spaces
-aws3 store images
-
-
++add_reference
++tabs to spaces
 
 notes:
-for auth with VK app needs to be deployed
+for auth with VK on deployment need to change uri in settings of service
