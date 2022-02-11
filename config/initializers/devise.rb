@@ -23,6 +23,7 @@ Devise.setup do |config|
       image_size: 100,
       ssl_verify: false
   }
+  config.omniauth :vkontakte, ENV['VKONTAKTE_KEY'], ENV['VKONTAKTE_SECRET'], {}
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

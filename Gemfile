@@ -34,11 +34,10 @@ gem 'pry-byebug'
 
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
-# google auth:
+# social networks auth:
 gem "dotenv-rails"
 gem 'omniauth-google-oauth2'
-
-
+gem 'omniauth-vkontakte'
 
 
 # Use Active Storage variant

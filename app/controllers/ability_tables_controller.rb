@@ -52,10 +52,12 @@ class AbilityTablesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_ability_table
     @ability_table = AbilityTable.find(params[:id])
   end
+
   # setting character for redirecting after commit
   def set_character
     @character = current_user.character
@@ -73,6 +75,7 @@ class AbilityTablesController < ApplicationController
                                         :charisma
                                         )
   end
+
   # creates table Skill for current character
   def set_skills
     Skill.create!(ability_table_id: @ability_table.id) if @ability_table.skill.nil?
