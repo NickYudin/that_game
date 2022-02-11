@@ -8,14 +8,14 @@ class HitIncrease < ApplicationService
 
   def call
     if @level = 1
-      @class.hit_dice.face  + Modificator.call(@character.constitution)
+      @class.hit_dice.face  + Modificator.call(@character.ability_table.constitution)
     else
       healing_surge
     end
   end
 
   def healing_surge
-    DiceRoller.call(1, @class.hit_dice.face) + Modificator.call(@character.constitution)
+    DiceRoller.call(1, @class.hit_dice.face) + Modificator.call(@character.ability_table.constitution)
   end
 
 end

@@ -1,8 +1,8 @@
 class BasicAttribute < ApplicationService
 
   #calculates each modificator and adds it to db
-  def initialize(abil_table)
-    @at = AbilityTable.find(abil_table.id)
+  def initialize(at)
+    @at = AbilityTable.find(at.id)
     @dependence = SkillsHash.call
   end
 

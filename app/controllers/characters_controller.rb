@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 load_and_authorize_resource
-  before_action :set_character, only: %i[ show edit update destroy set_stats ]
-
+  before_action :set_character, only: %i[ show edit update destroy set_stats set_abilities ]
+  after_action :set_abilities, only: :create
   # GET /characters or /characters.json
   def index
     @characters = Character.all
@@ -24,21 +24,6 @@ load_and_authorize_resource
     @character = Character.new(character_params)
     respond_to do |format|
       if @character.save
-        AbilityTable.create(character_id: @character.id)
-        at = @character.ability_table
-        increase = @character.race.race_increase
-        #future task: create separate method to do this more clearly:
-        at.update(
-                  :strength => at.strength + increase.strength,
-                  :dexterity => at.dexterity + increase.dexterity,
-                  :constitution => at.constitution + increase.constitution,
-                  :intelligence => at.intelligence + increase.intelligence,
-                  :wisdom => at.wisdom + increase.wisdom,
-                  :charisma => at.charisma + increase.charisma
-                  )
-        at.free_points += 2 if at.character.race.name == "Half-Elf"
-        at.save!
-
         format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
@@ -80,6 +65,37 @@ load_and_authorize_resource
     # Only allow a list of trusted parameters through.
     def character_params
       params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id)
+    end
+
+    def set_abilities
+      AbilityTable.create(character_id: @character.id)
+      at = @character.ability_table
+      set_skills(at)
+      race_update(at, @character)
+    end
+
+    # creates table Skill for current character
+    def set_skills(at)
+      Skill.create!(ability_table_id: at.id) if at.skill.nil?
+      BasicAttribute.call(at)
+    end
+
+    # update ability_table with chosen racial peculiarities
+    def race_update(at, char)
+      increase = char.race.race_increase
+      #future task: create separate method to do this more clearly:
+      at.update(
+                :strength => at.strength + increase.strength,
+                :dexterity => at.dexterity + increase.dexterity,
+                :constitution => at.constitution + increase.constitution,
+                :intelligence => at.intelligence + increase.intelligence,
+                :wisdom => at.wisdom + increase.wisdom,
+                :charisma => at.charisma + increase.charisma
+                )
+      if at.character.race.name == "Half-Elf"
+        at.free_points += 2
+        at.save
+      end
     end
 
 end
