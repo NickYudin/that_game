@@ -13,6 +13,14 @@
   </p>
 
   <p>
+    <% begin%>
+      <img src="<%=url_for(character.avatar)%>"  width="100" >
+    <% rescue NoMethodError%>
+      !!! 
+    <% end %>
+  </p>
+
+  <p>
     <strong>Level:</strong>
     <%= character.level %>
   </p>

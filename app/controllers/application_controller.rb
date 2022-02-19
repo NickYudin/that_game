@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # creates table Skill for current character
+  def set_skills(at)
+    Skill.create!(ability_table_id: at.id) if at.skill.nil?
+    BasicAttribute.call(at)
+  end
+
 end

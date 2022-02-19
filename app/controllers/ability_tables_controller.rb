@@ -46,6 +46,7 @@ class AbilityTablesController < ApplicationController
                                         :wisdom,
                                         :charisma
                                         ))
+    set_skills(@ability_table)
     Health.call(@character) if @character.ability_table.free_points == 0
     redirect_to @character
   end

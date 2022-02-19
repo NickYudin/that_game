@@ -1,7 +1,6 @@
 class CharactersController < ApplicationController
 load_and_authorize_resource
   before_action :set_character, only: %i[ show edit update destroy set_stats set_abilities ]
-  after_action :set_abilities, only: :create
   # GET /characters or /characters.json
   def index
     @characters = Character.all
@@ -24,6 +23,7 @@ load_and_authorize_resource
     @character = Character.new(character_params)
     respond_to do |format|
       if @character.save
+        set_abilities
         format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
@@ -64,7 +64,7 @@ load_and_authorize_resource
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id)
+      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id, :avatar)
     end
 
     def set_abilities

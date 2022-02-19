@@ -8,6 +8,8 @@ class User < ApplicationRecord
   belongs_to :role
   has_one :character
 
+  has_one_attached :avatar
+
 
   def self.from_omniauth(access_token)
       data = access_token.info
