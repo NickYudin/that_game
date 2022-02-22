@@ -2,14 +2,18 @@ class Parser
 
   CLASSES_START_PAGE  = 'https://www.dandwiki.com/wiki/5e_SRD:Classes'.freeze
   RACES_START_PAGE  = 'https://www.dandwiki.com/wiki/5e_SRD:races'.freeze
+  WEAPONS_START_PAGE = 'https://www.dandwiki.com/wiki/5e_SRD:Weapons'.freeze
 
   def initialize(source)
     if source == "classes"
       start_page = CLASSES_START_PAGE
     elsif source == "races"
       start_page = RACES_START_PAGE
+    elsif source == "weapons"
+      start_page = WEAPONS_START_PAGE
     end
     @page = Mechanize.new.get(start_page)
+    #binding.pry
   end
 
   def links
@@ -23,9 +27,81 @@ class Parser
   def chars_data
     links.map { |link| ChCl.new(link).call}
   end
+  
+  def weaps_data
+    ChWeap.new(@page).call
+  end
+  
 
 end
 
+class ChWeap
+  def initialize(page)
+    @page = page
+    @links = page.links
+  end
+
+  def call
+
+    hh = {
+          weapons: weapon,
+          weapon_properties: properties, 
+          weapon_class: weapon_class 
+         }
+    end
+
+  #search for tables with weapons' data & exclude system infomation tables:
+  def tables
+    tables = @page.search('table')[2..5]
+  end
+
+  #setting up hash with indexes for each weapon
+  def setup
+    table = tables.first
+    @setup = {}
+    th =table.search('th').text
+    th.split("\n").each_with_index do |data, i| 
+      data = 'name' if i == 0        
+      @setup[data.to_s] = i
+    end
+    @setup
+  end
+
+  def weapon
+    @weapons = []
+    tables.each do |table| ;
+      @element = table.search('tr').text.split("\n");
+      @element.delete("") 
+      @row =[]
+      (@element.size/5).times do
+        @row << @element.slice!(0,5)
+      end
+      @weapon = {}
+      @row.each do |row|
+        @weapon = {}
+        setup.each_pair do |key, i|      
+          @weapon[key.downcase.to_sym] = row[i].downcase
+        end
+        @weapons << @weapon if @weapon[:cost] != 'cost'
+      end;
+    end
+    @weapons
+  end
+
+  def weapon_class
+    arr = []
+    tables.each do |t|
+      arr << t.search('th').text.split("\n").first
+    end
+    arr
+  end
+
+  def properties
+    @links.filter_map { |link| link.text if link.uri.to_s.include?("/wiki/5e_SRD:Weapon_Properties#") }
+  end
+
+
+end
 
 class ChRace
   def initialize(link)

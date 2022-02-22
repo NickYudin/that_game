@@ -74,11 +74,6 @@ load_and_authorize_resource
       race_update(at, @character)
     end
 
-    # creates table Skill for current character
-    def set_skills(at)
-      Skill.create!(ability_table_id: at.id) if at.skill.nil?
-      BasicAttribute.call(at)
-    end
 
     # update ability_table with chosen racial peculiarities
     def race_update(at, char)

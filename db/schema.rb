@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_18_084258) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_21_143627) do
   create_table "ability_tables", force: :cascade do |t|
     t.integer "character_id", null: false
     t.integer "strength", default: 10
@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_18_084258) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_18_084258) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -80,6 +80,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_18_084258) do
     t.index ["char_class_id"], name: "index_characters_on_char_class_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "damage_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "weapons_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["weapons_id"], name: "index_damage_types_on_weapons_id"
   end
 
   create_table "hit_dices", force: :cascade do |t|
@@ -173,6 +181,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_18_084258) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
+  end
+
+  create_table "weapon_properties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "weapon_properties_weapons", id: false, force: :cascade do |t|
+    t.bigint "weapon_id"
+    t.bigint "weapon_property_id"
+    t.index ["weapon_id"], name: "index_weapon_properties_weapons_on_weapon_id"
+    t.index ["weapon_property_id"], name: "index_weapon_properties_weapons_on_weapon_property_id"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.string "damage"
+    t.string "damage_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cost"
+    t.string "weight"
+    t.string "properties"
+    t.index ["damage_type_id"], name: "index_weapons_on_damage_type_id"
   end
 
   add_foreign_key "ability_tables", "characters"
