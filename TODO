@@ -19,13 +19,13 @@ main tasks:
 			+ classes
 			+ races
 			items:
-				weapon
+				+weapon
 				armor
 				potions
 		*create corresponding db with dependencies
 		*add more complex calculator for modificator (depends on race, class and items) (**maybe replace one table with individual for each modificator)
-		*add random name generator
-		*adding images on fly (avatars, using AWS)
+		*+add random name generator
+		*+adding images on fly (avatars, using AWS)
 		*add hotwire to interface (entire process of creating character's sheet in one window)
 		*printout of the resulting pdf (**various variants of views)
 

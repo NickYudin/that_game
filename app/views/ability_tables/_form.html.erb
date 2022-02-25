@@ -1,18 +1,20 @@
-<div class="container p-2">
-  <div>
-    Free points:
-    <%=  @character.ability_table.free_points %>
+ <%= turbo_frame_tag @character.ability_table do %>
+  <div class="container p-2">
+    <div>
+      Free points:
+      <%=  @character.ability_table.free_points %>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <%= render 'ability_tables/add_point_button', ability: :strength %>
+        <%= render 'ability_tables/add_point_button', ability: :dexterity %>
+        <%= render 'ability_tables/add_point_button', ability: :constitution %>
+        <%= render 'ability_tables/add_point_button', ability: :intelligence %>
+        <%= render 'ability_tables/add_point_button', ability: :wisdom %>
+        <%= render 'ability_tables/add_point_button', ability: :charisma %>
+      </div>
+      <div class="col-3">
+      <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
+      </div>
   </div>
-  <div class="row">
-    <div class="col-1">
-      <%= render 'ability_tables/add_point_button', ability: :strength %>
-      <%= render 'ability_tables/add_point_button', ability: :dexterity %>
-      <%= render 'ability_tables/add_point_button', ability: :constitution %>
-      <%= render 'ability_tables/add_point_button', ability: :intelligence %>
-      <%= render 'ability_tables/add_point_button', ability: :wisdom %>
-      <%= render 'ability_tables/add_point_button', ability: :charisma %>
-    </div>
-    <div class="col-3">
-    <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
-    </div>
-</div>
+<% end %>

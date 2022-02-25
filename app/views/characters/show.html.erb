@@ -2,24 +2,24 @@
   <div class="row">
     <div class="col shadow p-3">
       <div class="row">
-        <div class="col p-3">
+        <div class="col ">
           <%= render @character %>
         </div>
-        <div class="col p-3">
+        <div class="col ">
           <%= link_to "Change name", edit_character_path, class:"btn-sm btn-warning" %>
         </div>
+        <div>
+          <%= turbo_frame_tag @character.ability_table do %> 
+            <% if @character.ability_table.free_points > 0%> 
+              <%= render  'ability_tables/form', ability_table: @character.ability_table %>
+            <% else %>
+              <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
+            <% end %>
+          <% end %>    
+        </div>
       </div>
-
-      <% if @character.ability_table.free_points > 0%> 
-        <%= render  'ability_tables/form', ability_table: @character.ability_table %>
-      <% else %>
-        <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
-      <% end %>
-
-
     </div>
-
-    <div class="col shadow p-3">
+    <div class="col shadow">
       <div class="container">    
         <% if @character.ability_table.skill %>
           <%= render 'skills/skill', skill: @character.ability_table.skill %>

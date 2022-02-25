@@ -13,8 +13,10 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, value: random_name%>
   </div>
+
+ 
   <div>
     <%= form.select :char_class_id,  CharClass.all.map {|clas| [clas.name, clas.id]}, {} %>
   </div>

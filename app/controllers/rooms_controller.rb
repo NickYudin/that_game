@@ -63,7 +63,7 @@ class RoomsController < ApplicationController
   def fight
     character = current_user.character
     @monster = Monster.find(@room.monster_id)
-    character.health -= @monster.power
+    character.health -= DiceRoller.call(1, 4) if DiceRoller.call(1,20) > @monster.power
     character.experiense += @monster.power
     @room.fighting
     if character.save && @room.save

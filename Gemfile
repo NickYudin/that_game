@@ -25,10 +25,12 @@ gem 'turbo-rails', '~> 1.0.0'
 
 gem 'aasm'
 gem 'after_commit_everywhere', '~> 1.0'
-gem 'devise'
+gem 'devise', git: 'https://github.com/heartcombo/devise', ref: '8593801'
 gem 'cancancan'
 gem 'faker'
 gem 'mechanize'
+gem 'hotwire-rails'
+gem "sprockets-rails"
 
 gem 'pry-rails'
 gem 'pry-byebug'

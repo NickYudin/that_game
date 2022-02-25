@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
   puts "seeding roles, users, monsters, rooms..."
   roles = Role.create([{roles: 'admin'},
                        {roles: 'user'}])
@@ -27,14 +19,15 @@
 
   puts "creating hit dises charclasses..."
   hit_dices = HitDice.create([ 
-                                {face: 4}, 
-                                {face: 6}, 
-                                {face: 8}, 
-                                {face: 10}, 
-                                {face: 12}, 
-                                {face: 20}
-                                ])
+                              {face: 4}, 
+                              {face: 6}, 
+                              {face: 8}, 
+                              {face: 10}, 
+                              {face: 12}, 
+                              {face: 20}
+                            ])
   
+  puts "creating classes..."
   char_classes = CharClass.create([Parser.new("classes").chars_data])
 
   puts "creating races..."
@@ -61,9 +54,9 @@
                             properties: w[:properties] 
                           )
     
-    print "claiming properties for #{weapon.name}"
+    puts "claiming properties for #{weapon.name}"
     weapon.properties.split(', ').each do |name|
-      puts " property: #{name.capitalize.split('(').first }"
+      puts "property: #{name.capitalize.split('(').first }"
       prop = name.split(' (').first 
       weapon.weapon_properties << WeaponProperty.find_by(name: prop) if prop != "—"
     end

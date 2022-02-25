@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
 
-  before_action :authenticate_user!, :character_exist?
+  before_action :authenticate_user!, unless: :devise_controller?
+  before_action :character_exist?
 
-  helper_method :next_room, :character_exist?
+  helper_method :next_room, :character_exist?, :random_name
 
   #generate next room for user
   def next_room
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
   def set_skills(at)
     Skill.create!(ability_table_id: at.id) if at.skill.nil?
     BasicAttribute.call(at)
+  end
+
+  def random_name
+    @character.name || Faker::Games::ElderScrolls.first_name 
   end
 
 end

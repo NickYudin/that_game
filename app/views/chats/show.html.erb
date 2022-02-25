@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag "chat" do%>
+  <%= render @chat %>
+
+  <p>
+    <%= link_to "Edit this chat", edit_chat_path(@chat) %> |
+    <%= link_to "Back to chats", chats_path %>
+  </p>
+<% end %>
+<div id="mesages">
+  <%= render @chat.messages%>
+</div>
+
+<%= link_to 'new_message', new_chat_message_path(@chat)%>
+
