@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :monsters
   resources :characters
   resources :ability_tables
+  resources :weapons
 
   resources :chats do 
     resources :messages

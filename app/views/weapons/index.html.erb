@@ -1,0 +1,55 @@
+
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+
+  <table>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Damage
+    </th>
+    <th>
+      Damage type
+    </th>
+    <th>
+      Cost
+    </th>
+    <th>
+      Weight
+    </th>
+    <th>
+      Properties
+    </th>
+<% @weapons.each do |weapon|%>
+    <tr>
+      <td>
+        <%= weapon.name.capitalize %>
+      </td>
+      <td>
+        <%= weapon.damage %>
+      </td>
+      <td>
+        <%= weapon.damage_type.name %>
+      </td>
+      <td>
+        <%= weapon.cost %>
+      </td>
+      <td>
+        <%= weapon.weight %>
+      </td>
+      <td>
+        <%= weapon.properties.capitalize %>
+      </td>
+<% end %>
+</table>
+
+
+
