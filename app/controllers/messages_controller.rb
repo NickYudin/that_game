@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to @chat}
+      format.turbo_stream
+
     end
   end
 

@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
+<%= turbo_stream_from @chat%>
 <%= turbo_frame_tag "chat" do%>
   <%= render @chat %>
 
   <p>
     <%= link_to "Edit this chat", edit_chat_path(@chat) %> |
-    <%= link_to "Back to chats", chats_path %>
+    <%= link_to "Back to chats", chats_path, "data-turbo-frame": "_top" %>
   </p>
 <% end %>
-<div id="mesages">
+<div id="messages">
   <%= render @chat.messages%>
 </div>
 
-<%= link_to 'new_message', new_chat_message_path(@chat)%>
-
+<%= turbo_frame_tag "new message", src: new_chat_message_path(@chat), target: "_top"%>

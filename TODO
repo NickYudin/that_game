@@ -46,6 +46,9 @@ menthor's advices:
 
 +add_reference
 +tabs to spaces
+-readme with launching app
+-docker investigation
+-fulltext search sunspot/add later by Sergey
 
 notes:
 for auth with VK on deployment need to change uri in settings of service

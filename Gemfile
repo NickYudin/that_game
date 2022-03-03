@@ -43,7 +43,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
 
 gem 'aws-sdk-s3'
-
+#paginaton:
+gem 'will_paginate', '~> 3.3'
+#fulltext search:
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
