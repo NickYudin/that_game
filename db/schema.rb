@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_25_121648) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_10_074045) do
   create_table "ability_tables", force: :cascade do |t|
-    t.integer "character_id", null: false
     t.integer "strength", default: 10
     t.integer "dexterity", default: 10
     t.integer "constitution", default: 10
@@ -22,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_25_121648) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "free_points", default: 10
-    t.index ["character_id"], name: "index_ability_tables_on_character_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -77,6 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_25_121648) do
     t.integer "char_class_id"
     t.integer "max_health", default: 0
     t.integer "race_id"
+    t.string "aasm_state"
+    t.bigint "ability_table_id"
+    t.index ["ability_table_id"], name: "index_characters_on_ability_table_id"
     t.index ["char_class_id"], name: "index_characters_on_char_class_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
@@ -115,6 +116,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_25_121648) do
     t.integer "power"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "heatth", default: 7
+    t.integer "health", default: 7
+    t.integer "max_health", default: 10
+    t.bigint "ability_table_id"
+    t.index ["ability_table_id"], name: "index_monsters_on_ability_table_id"
   end
 
   create_table "race_increases", force: :cascade do |t|
@@ -222,8 +228,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_25_121648) do
     t.index ["damage_type_id"], name: "index_weapons_on_damage_type_id"
   end
 
-  add_foreign_key "ability_tables", "characters"
-  add_foreign_key "ability_tables", "characters"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "char_classes", "hit_dices"

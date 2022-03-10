@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
 load_and_authorize_resource
   before_action :set_character, only: %i[ show edit update destroy set_stats set_abilities ]
+  
   # GET /characters or /characters.json
   def index
     @characters = Character.all
@@ -21,13 +22,14 @@ load_and_authorize_resource
   # POST /characters or /characters.json
   def create
     @character = Character.new(character_params)
+    @character.ability_table = AbilityTable.create
     respond_to do |format|
       if @character.save
         set_abilities
         format.html { redirect_to character_url(@character), notice: "Character was successfully created! Now you need to set your abilities." }
         format.json { render :show, status: :created, location: @character }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity, alert: "#{@character.errors.full_messages}" }
         format.json { render json: @character.errors, status: :unprocessable_entity }
       end
     end
@@ -55,6 +57,12 @@ load_and_authorize_resource
     end
   end
 
+
+  def edit_name
+    @character = Character.find(params[:character_id])
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_character
@@ -63,11 +71,11 @@ load_and_authorize_resource
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.require(:character).permit(:name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id, :avatar)
+      params.require(:character).permit(
+        :name, :level, :health, :experiense, :user_id, :char_class_id, :max_health, :race_id, :avatar)
     end
 
     def set_abilities
-      AbilityTable.create(character_id: @character.id)
       at = @character.ability_table
       set_skills(at)
       race_update(at, @character)

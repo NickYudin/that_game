@@ -1,6 +1,7 @@
 class AbilityTable < ApplicationRecord
 
-  belongs_to :character
+  has_one :character
+  has_one :monster
   has_one :skill, dependent: :destroy
 
 end

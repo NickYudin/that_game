@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy fight restore ]
   before_action :restore, only: :show
+  before_action :set_fighters, only: :fight
 
   # GET /rooms or /rooms.json
   def index
@@ -61,21 +62,31 @@ class RoomsController < ApplicationController
   end
 
   def fight
-    character = current_user.character
-    @monster = Monster.find(@room.monster_id)
-    character.health -= DiceRoller.call(1, 4) if DiceRoller.call(1,20) > @monster.power
-    character.experiense += @monster.power
-    @room.fighting
-    if character.save && @room.save
+    @room.fighting! if @room.monster_in?
+    EpicBattle.call(@character, @monster, @room)
+    if @character.save && @room.save
       redirect_to @room
-      flash[:notice] = "You killed a #{@monster.name}!"
     end
+    
+  end
+
+  def strike
+
+  end
+
+  def run
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
+    end
+
+    def set_fighters
+      @character = current_user.character
+      @monster = @room.monster
     end
 
     # Only allow a list of trusted parameters through.
@@ -86,6 +97,9 @@ class RoomsController < ApplicationController
     #restore monster when user enter new room
     def restore
       if !@room.monster_in? && current_user.last_room != @room.id
+        monster =@room.monster
+        monster.health = monster.max_health
+        monster.save!
         @room.restore!
       end
     end

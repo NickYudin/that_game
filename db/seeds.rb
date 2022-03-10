@@ -10,9 +10,12 @@
                         email: 'nik6594@mail.ru',
                         password: '123456'
                         }])
-
-  monsters = Monster.create([ {name: 'Gobbo', power: 13},
-                              {name: 'Red snake', power: 17} ])
+  params = [ {name: 'Gobbo', power: 13}, {name: 'Red snake', power: 17} ]
+  params.each do |m|
+    monster = Monster.new(m)
+    monster.ability_table = AbilityTable.create
+    monster.save
+  end
 
   rooms = Room.create([ {description: 'Dark cave', monster_id: 1}, 
                         {description: 'Underground forrest', monster_id: 2}])
@@ -60,4 +63,8 @@
       prop = name.split(' (').first 
       weapon.weapon_properties << WeaponProperty.find_by(name: prop) if prop != "—"
     end
+
   end 
+
+  #stub for chat:
+  chat = Chat.create(name:"first")  

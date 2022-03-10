@@ -22,9 +22,10 @@ class MonstersController < ApplicationController
   # POST /monsters or /monsters.json
   def create
     @monster = Monster.new(monster_params)
-
+    @monster.ability_table = AbilityTable.create
     respond_to do |format|
       if @monster.save
+        set_skills(@monster.ability_table)
         format.html { redirect_to monster_url(@monster), notice: "Monster was successfully created." }
         format.json { render :show, status: :created, location: @monster }
       else
@@ -67,4 +68,5 @@ class MonstersController < ApplicationController
     def monster_params
       params.require(:monster).permit(:name, :power)
     end
+
 end

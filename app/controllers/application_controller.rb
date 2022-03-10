@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, unless: :devise_controller?
-  before_action :character_exist?
+ # before_action :character_exist?
 
-  helper_method :next_room, :character_exist?, :random_name
+  helper_method :next_room, :character_exist?, :random_name, :check_avatar
+
+  def check_avatar(character)
+    begin
+      url_for(character.avatar)
+    rescue NoMethodError
+      return  "/images/that_game_logo.jpg"
+    end
+  end
 
   #generate next room for user
   def next_room
