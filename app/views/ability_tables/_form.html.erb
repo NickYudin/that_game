@@ -1,8 +1,8 @@
- <%= turbo_frame_tag @character.ability_table do %>
+ <%= turbo_frame_tag character.ability_table do %>
   <div class="container p-2">
     <div>
       Free points:
-      <%=  @character.ability_table.free_points %>
+      <%=  character.ability_table.free_points %>
     </div>
     <div class="row">
       <div class="col-1">

@@ -15,8 +15,73 @@
 
 
  */
-
- turbo-frame {
+/* 
+turbo-frame {
    display: block;
    border: 1px solid blue;
- }
+  } */
+  
+  html {
+    height: 100%;
+  }
+  
+body {
+  padding-top: 100px;
+  min-height: 100%;
+  background: linear-gradient(0.5turn,  #ffffff, rgb(221, 220, 220));
+  bottom: 0px;
+  }
+
+.navbar {
+  width: 100%;
+  background-color: white !important;
+  position: -webkit-sticky;
+  position: static;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  }
+  
+.navbar-brand {
+  font-size: 3rem;
+  }
+
+  #left_menu{
+    position: -webkit-sticky;
+    position: fixed;
+    top: 120px;
+  }
+
+  
+.apple_pagination {
+  background-opacity: 0;
+  border: none;
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+}
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: white; 
+}
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: rgb(202, 205, 206);
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: grey 1px 1px 1px;
+}
+  .apple_pagination a {
+    text-decoration: none;
+    color: black;
+}
+  .apple_pagination a:hover, .apple_pagination a:focus {
+    text-decoration: underline; 
+}

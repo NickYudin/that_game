@@ -1,24 +1,20 @@
 <div id="<%= dom_id character %>">
-  <p class="text-warning">
-    <strong>Name:</strong>
-    <%= character.name.to_s %>
-  </p>
-  <p>
-      <strong>Class:</strong>
-      <%= character.char_class.name %>
-  </p>
-   <p>
-      <strong>Race:</strong>
-      <%= character.race.name %>
-  </p>
+    <p>
+      <%= turbo_frame_tag "name" do%>
+        <%= render 'name', character: character%>
+      <% end %>
+    <p>
+        <strong>Class:</strong>
+        <%= character.char_class.name %>
+    </p>
+    <p>
+        <strong>Race:</strong>
+        <%= character.race.name %>
+    </p>
 
-  <p>
-    <% begin%>
-      <img src="<%=url_for(character.avatar)%>"  width="100" >
-    <% rescue NoMethodError%>
-      !!! 
-    <% end %>
-  </p>
+    <p>
+        <img src="<%=check_avatar(character)%>",  width="100" >
+    </p>
 
   <p>
     <strong>Level:</strong>

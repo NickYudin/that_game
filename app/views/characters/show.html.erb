@@ -1,33 +1,34 @@
-<div class="container  rounded bg-light mt-3 p-3 ">
-  <div class="row">
-    <div class="col shadow p-3">
-      <div class="row">
-        <div class="col ">
-          <%= render @character %>
-        </div>
-        <div class="col ">
-          <%= link_to "Change name", edit_character_path, class:"btn-sm btn-warning" %>
-        </div>
-        <div>
-          <%= turbo_frame_tag @character.ability_table do %> 
-            <% if @character.ability_table.free_points > 0%> 
-              <%= render  'ability_tables/form', ability_table: @character.ability_table %>
-            <% else %>
-              <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
-            <% end %>
-          <% end %>    
-        </div>
+<div class="row p-3">
+  <div class="col shadow p-3">
+    <div class="row">
+      <div class="col ">
+        <%= render @character %>
       </div>
-    </div>
-    <div class="col shadow">
-      <div class="container">    
-        <% if @character.ability_table.skill %>
-          <%= render 'skills/skill', skill: @character.ability_table.skill %>
-        <% end %>
+      <div>
+        <%= turbo_frame_tag @character.ability_table do %> 
+          <% if @character.ability_table.free_points > 0%> 
+            <%= render  'ability_tables/form', ability_table: @character.ability_table, character: @character %>
+          <% else %>
+            <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
+          <% end %>
+        <% end %>    
       </div>
     </div>
   </div>
-      <div class="p-5">
-        <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-sm" %>
-      </div>
+  <div class="col shadow pt-5">
+    <div class="container">    
+      <% if @character.ability_table.skill %>
+        <%= render 'skills/skill', skill: @character.ability_table.skill %>
+      <% end %>
+    </div>
+  </div>
 </div>
+<% if @character.dead?%>
+  <div class="p-5">
+    <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-lg" %>
+  </div>
+<% else %>
+  <div class="p-5">
+    <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-sm" %>
+  </div>
+<% end %>

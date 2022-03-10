@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "name" do%>
+
+  <%= form_with(model: @character) do |f| %>
+    
+      <%= f.text_field :name, value: random_name%>
+
+      <%= f.submit%>
+
+  <% end %>
+<% end %>

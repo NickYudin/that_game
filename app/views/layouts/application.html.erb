@@ -14,14 +14,24 @@
   <body>
 
     <%= render 'layouts/navigation' %>
- <p style="color: green"><%= notice %></p>
- <p style="color: red"><%= alert %></p>
-    <div class="container mt-5 p-5 bg-light shadow">
-      <div class="row">
-        <div class="col-4">
-          <%= render 'layouts/left_menu' %>
-        </div>      
-          <div class="col-8">
+    
+    <div class="row">
+      <div class="col-3 p-5">
+        <%= render 'layouts/left_menu' %>
+      </div>      
+        <div class="col-8 p-5">
+          <% if flash.any? %>
+            <% if flash.notice %>
+              <div  class="alert alert-success"role="alert">
+                  <ul>
+                      <li> <%= flash.notice %> </li>
+                  </ul>
+              </div>
+            <% elsif flash.alert %> 
+              <p class="alert alert-danger" role="alert"><%= alert %></p>
+            <% end %>
+          <% end %>
+          <Div id="main">
             <%= yield %>
           </div>
         </div>

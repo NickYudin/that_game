@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg shadow navbar-light bg-light">
+<nav class="navbar navbar-expand-lg  navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">A Game</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,14 +9,41 @@
         <li class="nav-item">
           <%= link_to "monsters", monsters_path, class:"nav-link active" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "weapons", weapons_path, class:"nav-link active" %>
+        </li>
 
         <li class="nav-item">
           <% if current_user && character_exist? %>
             <%= link_to "jorney", room_path(current_user.last_room), class:"nav-link active" %>
           <% else %>
-            <%= link_to "jorney", new_user_session_path, class:"nav-link active" %>
+            <%= link_to "jorney", new_character_path, class:"nav-link active" %>
           <% end %>
         </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if current_user %>
+          <li class="nav-item text-sm">
+            <%= current_user.email %>
+          </li>
+        </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if current_user.character %>
+            <li class="nav-item">
+              <%= link_to "Your character",  current_user.character, class:"nav-link active" %>
+            </li>
+          <% else %>
+            <%= link_to "Create character", new_character_path, class:"nav-link active" %>
+          <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "sign in", new_user_session_path, class:"nav-link active" %>
+          </li>          
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "sign out", destroy_user_session_path, method: :delete, class:"nav-link active" %>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

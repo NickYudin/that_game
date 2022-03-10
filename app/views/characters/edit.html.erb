@@ -1,7 +1,8 @@
 <h1>Editing character</h1>
+<%= turbo_frame_tag "name" do%>
 
-<%= render "form", character: @character %>
-
+  <%= render "form", character: @character %>
+<% end %>
 <br>
 
 <div>

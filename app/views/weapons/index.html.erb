@@ -1,14 +1,14 @@
+<div id="search">
+  <%= search_form_for @q do |f| %>
 
-<%= search_form_for @q do |f| %>
+    <%= f.search_field :name_cont %>
 
-  <%= f.label :name %>
-  <%= f.search_field :name_cont %>
+    <%= f.submit %>
+  <% end %>
+</div>
+ </br>
 
-  <%= f.submit %>
-<% end %>
-
-
-  <table>
+  <table class="table table-striped mt-5">
   <tr>
     <th>
       Name
@@ -50,6 +50,8 @@
       </td>
 <% end %>
 </table>
-
+<div class="apple_pagination">
+  <%= will_paginate @weapons %>
+</div>
 
 
