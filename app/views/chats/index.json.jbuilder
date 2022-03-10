@@ -1,1 +1,1 @@
-json.array! @chats, partial: "chats/chat", as: :chat
+json.array! @chats, partial: 'chats/chat', as: :chat

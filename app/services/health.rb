@@ -1,5 +1,4 @@
-class Health < ApplicationService   
-
+class Health < ApplicationService
   def initialize(character)
     @character = character
   end
@@ -9,5 +8,4 @@ class Health < ApplicationService
     @character.health = @character.max_health
     @character.save!
   end
-
 end

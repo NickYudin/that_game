@@ -1,7 +1,6 @@
 class AbilityTablesController < ApplicationController
-
-  before_action :set_ability_table, only: %i[ update add_point add_free_points]
-  before_action :set_character, only: %i[ create update add_point ]
+  before_action :set_ability_table, only: %i[update add_point add_free_points]
+  before_action :set_character, only: %i[create update add_point]
 
   def new
     @ability_table = AbilityTable.new
@@ -25,7 +24,7 @@ class AbilityTablesController < ApplicationController
   def update
     respond_to do |format|
       if @ability_table.update(ability_table_params)
-        format.html { redirect_to character_url(@character), notice: "Character was successfully updated." }
+        format.html { redirect_to character_url(@character), notice: 'Character was successfully updated.' }
         format.json { render :show, status: :ok, location: @character }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -34,18 +33,17 @@ class AbilityTablesController < ApplicationController
     end
   end
 
-  #adds point to selected ability by using corresponding button in front-end
+  # adds point to selected ability by using corresponding button in front-end
   def add_point
-
-    @ability_table.free_points -=1
+    @ability_table.free_points -= 1
     @ability_table.update!(params.permit(
-                                        :strength,
+                             :strength,
                                         :dexterity,
                                         :constitution,
                                         :intelligence,
                                         :wisdom,
                                         :charisma
-                                        ))
+                           ))
     set_skills(@ability_table)
     Health.call(@character) if @character.ability_table.free_points == 0
     redirect_to @character
@@ -66,14 +64,13 @@ class AbilityTablesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def ability_table_params
     params.require(:ability_table).permit(
-                                        :character_id,
+      :character_id,
                                         :strength,
                                         :dexterity,
                                         :constitution,
                                         :intelligence,
                                         :wisdom,
                                         :charisma
-                                        )
+    )
   end
-
 end

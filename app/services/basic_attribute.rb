@@ -1,6 +1,5 @@
 class BasicAttribute < ApplicationService
-
-  #calculates each modificator and adds it to db
+  # calculates each modificator and adds it to db
   def initialize(at)
     @at = AbilityTable.find(at.id)
     @dependence = SkillsHash.call
@@ -12,5 +11,4 @@ class BasicAttribute < ApplicationService
       @at.skill.update(k => mod)
     end
   end
-
 end

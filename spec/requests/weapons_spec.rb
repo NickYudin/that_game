@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Weapons", type: :request do
-  describe "GET /index" do
+RSpec.describe 'Weapons', type: :request do
+  describe 'GET /index' do
     pending "add some examples (or delete) #{__FILE__}"
   end
 end

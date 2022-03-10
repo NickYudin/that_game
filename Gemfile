@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.0.0' 
+gem 'rails', '~> 7.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -30,7 +30,7 @@ gem 'cancancan'
 gem 'faker'
 gem 'mechanize'
 gem 'hotwire-rails'
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 gem 'pry-rails'
 gem 'pry-byebug'
@@ -38,14 +38,14 @@ gem 'pry-byebug'
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 # social networks auth:
-gem "dotenv-rails"
+gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'
 
 gem 'aws-sdk-s3'
-#paginaton:
+# paginaton:
 gem 'will_paginate', '~> 3.3'
-#fulltext search:
+# fulltext search:
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use Active Storage variant
@@ -56,7 +56,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
-
 end
 
 group :development do
@@ -79,6 +78,6 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'simplecov', require: false, group: :test

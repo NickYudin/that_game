@@ -1,13 +1,11 @@
 class Room < ApplicationRecord
   include AASM
 
- 
-	belongs_to :monster
-  validates_presence_of :description
+  belongs_to :monster
+  validates :description, presence: true
 
   aasm do
-
-  	state :monster_in, initial: true
+    state :monster_in, initial: true
     state :in_action
     state :monster_defeated
 
@@ -26,7 +24,5 @@ class Room < ApplicationRecord
     event :restore do
       transitions from: :monster_defeated, to: :monster_in
     end
-
   end
-
 end

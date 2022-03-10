@@ -51,7 +51,9 @@ class EpicBattle < ApplicationService
   end
 
   def round(fighter, opponent)
+    #check for alive fighter:
     if fighter.health > 0
+      #hitting and corresponding message creating:
       @content =  "#{fighter.name} strikes! And #{try_to_hit(fighter, opponent)}" 
       message
       check

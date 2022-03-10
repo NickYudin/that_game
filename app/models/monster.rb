@@ -1,5 +1,5 @@
 class Monster < ApplicationRecord
   has_many :rooms
-  validates_presence_of :name, :power
+  validates :name, :power, presence: true
   belongs_to :ability_table
 end
