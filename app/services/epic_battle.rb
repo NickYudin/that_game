@@ -28,7 +28,7 @@ class EpicBattle < ApplicationService
     if @room.in_action? && @character.alive?
       if @character.health < 1
 
-        @content = "#{@character.name}, you are fall down by #{@monster.name}'s hand..."
+        @content = "#{@character.name} are fall down by #{@monster.name}'s hand..."
         message
         @room.monster_wins!
         @character.death!

@@ -38,6 +38,7 @@ gem 'pry-byebug'
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 # social networks auth:
+gem 'omniauth-rails_csrf_protection'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-vkontakte'

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :chats
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  get "/users/auth/google_oauth2/callback"  => "authentications#google"
+
   root 'monsters#index'
 
   resources :rooms
