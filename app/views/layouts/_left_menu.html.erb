@@ -25,17 +25,9 @@
     </li>          
   <% end %>
   <% if current_user%>
-    <%= turbo_frame_tag Chat.first do%>
-    <div class="con">
-      <% if Chat.first.messages.size > 2 %> 
-        <% if Chat.first.messages.size > 9%>
-          <%= render partial: 'messages/message', collection: Chat.first.messages[-9..-3]%>
-        <% end %>
-        <div class="text-primary" >
-          <%= render partial: 'messages/message', collection: Chat.first.messages[-2..-1]%>
-        </div>
-      <% end %>  
-    </div>
-    <% end %>
+    <%= turbo_stream_from Chat.first%>
+      <%= turbo_frame_tag Chat.first, target: "_top" do%>
+        <%= render "layouts/logs"%>
+      <% end %>
   <% end %>
 </ul>

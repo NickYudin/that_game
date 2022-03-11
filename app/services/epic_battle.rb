@@ -101,19 +101,12 @@ class EpicBattle < ApplicationService
     DiceRoller.call(1, 20) + initiative_modificator(fighter)
   end
 
-
-  # @character.experiense += @monster.power
-  # @room.fighting
-
   def initiative_modificator(fighter)
       Modificator.call(fighter.ability_table.dexterity)
   end
 
   def message
-    Message.create( 
-      chat_id: @chat,
-      content: @content
-    )
+    ChatMessage.call(@chat, @content)
   end
 
 end

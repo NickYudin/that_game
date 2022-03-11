@@ -9,7 +9,7 @@
   </p>
 <% end %>
 <div id="messages">
-  <%= render @chat.messages%>
+  <%= render  @chat.messages%>
 </div>
 
 <%= turbo_frame_tag "new message", src: new_chat_message_path(@chat), target: "_top"%>

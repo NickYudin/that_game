@@ -1,0 +1,12 @@
+<%= turbo_frame_tag Chat.first, target: "_top" do%>
+  <div class="con">
+    <% if Chat.first.messages.size > 2 %> 
+      <% if Chat.first.messages.size > 9%>
+        <%= render partial: 'messages/message', collection: Chat.first.messages[-9..-3]%>
+      <% end %>
+      <div class="text-primary" >
+        <%= render partial: 'messages/message', collection: Chat.first.messages[-2..-1]%>
+      </div>
+    <% end %>  
+  </div>
+<% end %>  

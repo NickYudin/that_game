@@ -4,7 +4,9 @@
     <p>
       <strong>Monster:</strong>
       <%= @room.monster.name %>
-        <%= @room.monster.health %>
+      <div>
+        health: <%= @room.monster.health %>
+      </div>
     </p>
       <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
         Attack!
