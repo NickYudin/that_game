@@ -17,7 +17,8 @@ params.each do |m|
 end
 
 rooms = Room.create([{ description: 'Dark cave', monster_id: 1 },
-                     { description: 'Underground forrest', monster_id: 2 }])
+                    { description: 'Long tunnel', monster_id: 1 },
+                    { description: 'Underground forrest', monster_id: 2 }])
 
 puts 'creating hit dises charclasses...'
 hit_dices = HitDice.create([

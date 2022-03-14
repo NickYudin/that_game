@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update destroy fight restore]
+  before_action :set_room, only: %i[show edit update destroy fight restore rest]
   before_action :restore, only: :show
-  before_action :set_fighters, only: :fight
+  before_action :set_fighters, only: %i[ fight strike run ]
 
   # GET /rooms or /rooms.json
   def index
@@ -73,6 +73,12 @@ class RoomsController < ApplicationController
   def run
   end
 
+  def rest
+    @character = current_user.character
+    @character.health = HitIncrease.call(@character)
+    redirect_to @room if @character.save
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -99,4 +105,5 @@ class RoomsController < ApplicationController
       @room.restore!
     end
   end
+
 end
