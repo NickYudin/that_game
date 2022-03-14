@@ -1,0 +1,5 @@
+class BarbarianFeature < ApplicationRecord
+
+  
+
+end

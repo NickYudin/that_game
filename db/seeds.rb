@@ -65,5 +65,10 @@ weapons = Parser.new('weapons').weaps_data[:weapons].each do |w|
   end
 end
 
-# stub for chat:
+#stub for chat:
 chat = Chat.create(name: 'first')
+
+#class features:
+puts 'create barbarian features...' 
+barbarian_features  = BarbarianFeature.create(Features.call('barbarian'))
+

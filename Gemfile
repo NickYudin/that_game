@@ -35,6 +35,10 @@ gem 'sprockets-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
 
+#sprradesheets parsing:
+gem "roo", "~> 2.8.0"
+
+
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 # social networks auth:

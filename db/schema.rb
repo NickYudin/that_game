@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_10_074045) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_14_081124) do
   create_table "ability_tables", force: :cascade do |t|
     t.integer "strength", default: 10
     t.integer "dexterity", default: 10
@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_10_074045) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "barbarian_features", force: :cascade do |t|
+    t.integer "level"
+    t.integer "proficiency_bonus"
+    t.integer "rages"
+    t.integer "rage_damage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "char_classes", force: :cascade do |t|
     t.string "name"
     t.integer "hit_dice_id"
@@ -76,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_10_074045) do
     t.integer "max_health", default: 0
     t.integer "race_id"
     t.string "aasm_state"
-    t.bigint "ability_table_id"
+    t.integer "ability_table_id"
     t.index ["ability_table_id"], name: "index_characters_on_ability_table_id"
     t.index ["char_class_id"], name: "index_characters_on_char_class_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
