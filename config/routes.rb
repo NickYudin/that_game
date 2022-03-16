@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   post 'rooms/:id/strike' => 'rooms#strike', as: 'strike'
   post 'rooms/:id/run' => 'rooms#run', as: 'run'
   post 'rooms/:id/rest' => 'rooms#rest', as: 'rest'
+
+  #features' buttons:
+  post 'barbarian_statuses/:id/rage' => 'barbarian_statuses#rage', as: 'rage'
+
   # button to increase skills:
   post 'ability_tables/:id/add_point' => 'ability_tables#add_point', as: 'add_point'
 end

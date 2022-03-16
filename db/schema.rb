@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_14_081124) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_15_091600) do
   create_table "ability_tables", force: :cascade do |t|
     t.integer "strength", default: 10
     t.integer "dexterity", default: 10
@@ -63,6 +63,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_081124) do
     t.integer "rage_damage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "barbarian_statuses", force: :cascade do |t|
+    t.integer "max_rages", default: 2
+    t.integer "current_rages", default: 2
+    t.integer "rage_damage", default: 2
+    t.boolean "rage_active"
+    t.bigint "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "\"characters_id\"", name: "index_barbarian_statuses_on_characters_id"
   end
 
   create_table "char_classes", force: :cascade do |t|

@@ -5,8 +5,12 @@ class Character < ApplicationRecord
   belongs_to :char_class
   belongs_to :race
   belongs_to :ability_table, dependent: :destroy
-  validates :name, :level, :health, :experiense, :user_id, :char_class_id, presence: true
+  has_one  :barbarian_status
+
   has_one_attached :avatar
+
+  validates :name, :level, :health, :experiense, :user_id, :char_class_id, presence: true
+
 
   aasm do
     state :alive, initial: true

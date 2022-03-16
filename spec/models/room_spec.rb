@@ -9,6 +9,12 @@ require 'rails_helper'
 # end
 
 RSpec.describe Room, type: :model do
+  params = [{ name: 'Gobbo', power: 13 }, { name: 'Red snake', power: 17 }]
+  params.each do |m|
+    monster = Monster.new(m)
+    monster.ability_table = AbilityTable.create
+    monster.save
+  end
   context 'validation tests' do
     it 'ensures presence of description' do
       room = Room.new(monster_id: 1).save

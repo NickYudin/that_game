@@ -2,7 +2,7 @@ class ChatMessage < ApplicationService
 
   def initialize(chat, content)
     @chat = chat
-    @content =content
+    @content = content
   end
 
 

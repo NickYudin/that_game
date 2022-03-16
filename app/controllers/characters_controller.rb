@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   load_and_authorize_resource
-  before_action :set_character, only: %i[show edit update destroy set_stats set_abilities]
+  before_action :set_character, only: %i[show edit update destroy set_stats set_abilities class_status]
 
   # GET /characters or /characters.json
   def index
@@ -79,6 +79,7 @@ class CharactersController < ApplicationController
     at = @character.ability_table
     set_skills(at)
     race_update(at, @character)
+    class_status
   end
 
   # update ability_table with chosen racial peculiarities
@@ -98,4 +99,11 @@ class CharactersController < ApplicationController
       at.save
     end
   end
+
+  def class_status
+    if @character.char_class.name == 'Barbarian'
+      BarbarianStatus.create(character_id: @character.id)
+    end
+  end
+  
 end

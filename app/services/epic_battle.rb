@@ -5,14 +5,13 @@ class EpicBattle < ApplicationService
     @monster = monster
     @room = room
     @chat = Chat.first.id
+    
   end
 
   def call
     order
-
-      round(@first_fighter, @second_fighter)
-      round(@second_fighter, @first_fighter)
-
+    round(@first_fighter, @second_fighter)
+    round(@second_fighter, @first_fighter)
   end
 
   #generates array of fighters ordered by initiative.
@@ -38,7 +37,7 @@ class EpicBattle < ApplicationService
         @content = "#{@monster.name.capitalize} fall down by your hand!"
         message
         @room.character_wins!
-        @character.experiense += (@monster.power * @character.level)
+        @character.experiense += (@monster.power * 3)
       
       elsif @monster.health < 1 && @character.health < 1
       
@@ -62,15 +61,13 @@ class EpicBattle < ApplicationService
 
   def try_to_hit(fighter, opponent)
     if DiceRoller.call(1,20) + initiative_modificator(fighter) > armour_class(opponent)
-  #theese two lines wil be a separated method
-  #with weapon type and dealing damage accouning:
-      dmg = DiceRoller.call(1, 4)
-      opponent.health -= dmg
+      this_strike = dmg(fighter)
+      opponent.health -= this_strike
   #this saves need to refresh page when damage changes fighters stats(HP for now):
-      @first_fighter.save!
-      @second_fighter.save!
-  #this lines completes chat message with damage data or miss:
-      return "deal #{dmg} damage!" 
+      fighter.save!
+      opponent.save!
+  #these lines completes chat message with damage data or miss:
+      return "deal #{this_strike} damage!" 
     else
       return "miss..."
     end
@@ -96,13 +93,21 @@ class EpicBattle < ApplicationService
                 ].sort_by{|fighter| fighter[:initiative] }.reverse!
   end
 
-  
+  def dmg(fighter)
+    #in feauture with weapon type and dealing damage accouning:
+    @dmg = DiceRoller.call(1, 4) 
+    if fighter == @character && @character.char_class.name == "Barbarian"
+      @dmg += Rage.call(@character)
+    end
+    return @dmg
+  end
+
   def initiative_of(fighter)
     DiceRoller.call(1, 20) + initiative_modificator(fighter)
   end
 
   def initiative_modificator(fighter)
-      Modificator.call(fighter.ability_table.dexterity)
+    Modificator.call(fighter.ability_table.dexterity)
   end
 
   def message

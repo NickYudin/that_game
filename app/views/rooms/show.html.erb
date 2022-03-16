@@ -13,6 +13,7 @@
         health: <%= @room.monster.health %>
       </div>
     </p>
+    <%= render class_feature_view %>
     <% if !@room.in_action?%>
       <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
         Attack!

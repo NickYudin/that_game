@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update destroy fight restore rest]
+  before_action :set_room, only: %i[show edit update destroy fight restore rest rage]
   before_action :restore, only: :show
+  before_action :set_character, only: %i[ rest rage ]
   before_action :set_fighters, only: %i[ fight strike run ]
 
   # GET /rooms or /rooms.json
@@ -61,6 +62,7 @@ class RoomsController < ApplicationController
     end
   end
 
+  #methods for in-figth buttons
   def fight
     @room.fighting! if @room.monster_in?
     EpicBattle.call(@character, @monster, @room)
@@ -74,10 +76,10 @@ class RoomsController < ApplicationController
   end
 
   def rest
-    @character = current_user.character
     @character.health = HitIncrease.call(@character)
     redirect_to @room if @character.save
   end
+
 
   private
 
@@ -87,8 +89,12 @@ class RoomsController < ApplicationController
   end
 
   def set_fighters
-    @character = current_user.character
+    set_character
     @monster = @room.monster
+  end
+
+  def set_character
+    @character = current_user.character
   end
 
   # Only allow a list of trusted parameters through.

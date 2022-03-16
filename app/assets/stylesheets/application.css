@@ -20,6 +20,10 @@ turbo-frame {
    display: block;
    border: 1px solid blue;
   } */
+
+  #left_menu {
+    width: 17%;
+  }
   
   html {
     height: 100%;
