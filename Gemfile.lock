@@ -142,6 +142,11 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     faraday (2.2.0)
@@ -429,6 +434,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise!
   dotenv-rails
+  factory_bot_rails
   faker
   hotwire-rails
   jbuilder (~> 2.7)

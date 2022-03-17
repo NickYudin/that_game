@@ -75,9 +75,9 @@ class RoomsController < ApplicationController
   def run
     ChatMessage.call("You trying to leave this fight, but #{@monster.name} not sleeps...")
     OneStrike.call(@monster, @character)
-    ChatMessage.call("You ran away!") if @character.alive?
+    ChatMessage.call('You ran away!') if @character.alive?
     @room.character_wins!
-    redirect_to @room #in future will need some other redirect (maybe emty tunnel or smth quite place)
+    redirect_to @room # in future will need some other redirect (maybe emty tunnel or smth quite place)
   end
 
   def rest

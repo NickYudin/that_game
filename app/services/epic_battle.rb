@@ -38,8 +38,4 @@ class EpicBattle < ApplicationService
   def initiative_modificator(fighter)
     Modificator.call(fighter.ability_table.dexterity)
   end
-
-  def message
-    ChatMessage.call(@content)
-  end
 end
