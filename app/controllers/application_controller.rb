@@ -35,12 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def random_name
-    
     @character.name || Faker::Games::ElderScrolls.first_name
   end
 
   def class_feature_view
     character = current_user.character
-    "class_features/" + character.char_class.name.downcase.to_s
+    'class_features/' + character.char_class.name.downcase.to_s
   end
 end

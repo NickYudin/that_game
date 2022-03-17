@@ -17,8 +17,8 @@ params.each do |m|
 end
 
 rooms = Room.create([{ description: 'Dark cave', monster_id: 1 },
-                    { description: 'Long tunnel', monster_id: 1 },
-                    { description: 'Underground forrest', monster_id: 2 }])
+                     { description: 'Long tunnel', monster_id: 1 },
+                     { description: 'Underground forrest', monster_id: 2 }])
 
 puts 'creating hit dises charclasses...'
 hit_dices = HitDice.create([
@@ -65,10 +65,9 @@ weapons = Parser.new('weapons').weaps_data[:weapons].each do |w|
   end
 end
 
-#stub for chat:
+# stub for chat:
 chat = Chat.create(name: 'first')
 
-#class features:
-puts 'create barbarian features...' 
-barbarian_features  = BarbarianFeature.create(Features.call('barbarian'))
-
+# class features:
+puts 'create barbarian features...'
+barbarian_features = BarbarianFeature.create(Features.call('barbarian'))

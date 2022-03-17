@@ -37,14 +37,14 @@ class AbilityTablesController < ApplicationController
   def add_point
     @ability_table.free_points -= 1
     @ability_table.update!(params.permit(
-                                        :strength,
+                             :strength,
                                         :dexterity,
                                         :constitution,
                                         :intelligence,
                                         :wisdom,
                                         :charisma
-                                      ))
-    #set_skills based in application_controller:
+                           ))
+    # set_skills based in application_controller:
     set_skills(@ability_table)
     Health.call(@character) if @character.ability_table.free_points == 0
     redirect_to @character
@@ -65,13 +65,13 @@ class AbilityTablesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def ability_table_params
     params.require(:ability_table).permit(
-                                          :character_id,
+      :character_id,
                                           :strength,
                                           :dexterity,
                                           :constitution,
                                           :intelligence,
                                           :wisdom,
                                           :charisma
-                                        )
+    )
   end
 end

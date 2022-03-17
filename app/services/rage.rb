@@ -1,5 +1,4 @@
 class Rage < ApplicationService
-
   def initialize(character)
     @status = character.barbarian_status
   end
@@ -7,7 +6,7 @@ class Rage < ApplicationService
   def call
     if @status.rage_active?
       @status.toggle!(:rage_active)
-      return @status.rage_damage
+      @status.rage_damage
     else
       0
     end

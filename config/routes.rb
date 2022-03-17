@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :chats
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  get "/users/auth/google_oauth2/callback"  => "authentications#google"
+  get '/users/auth/google_oauth2/callback' => 'authentications#google'
 
   root 'monsters#index'
 
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   post 'rooms/:id/run' => 'rooms#run', as: 'run'
   post 'rooms/:id/rest' => 'rooms#rest', as: 'rest'
 
-  #features' buttons:
+  # features' buttons:
   post 'barbarian_statuses/:id/rage' => 'barbarian_statuses#rage', as: 'rage'
 
   # button to increase skills:

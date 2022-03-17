@@ -101,9 +101,6 @@ class CharactersController < ApplicationController
   end
 
   def class_status
-    if @character.char_class.name == 'Barbarian'
-      BarbarianStatus.create(character_id: @character.id)
-    end
+    BarbarianStatus.create(character_id: @character.id) if @character.char_class.name == 'Barbarian'
   end
-  
 end
