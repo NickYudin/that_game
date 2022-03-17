@@ -65,7 +65,7 @@ class RoomsController < ApplicationController
   # methods for in-figth buttons
   def fight
     @room.fighting! if @room.monster_in?
-    EpicBattle.call(@character, @monster, @room)
+    EpicBattle.call(@character, @monster)
     redirect_to @room if @character.save && @room.save
   end
 

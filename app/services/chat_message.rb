@@ -1,6 +1,6 @@
 class ChatMessage < ApplicationService
-  def initialize(chat, content)
-    @chat = chat
+  def initialize(content)
+    @chat = 1 # in future will need to select current chat
     @content = content
   end
 

@@ -1,15 +1,7 @@
 require 'rails_helper'
 
-# create_table "rooms", force: :cascade do |t|
-#   t.text "description"
-#   t.integer "monster_id"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.string "aasm_state"
-# end
-
 RSpec.describe Room, type: :model do
-  params = [{ name: 'Gobbo', power: 13 }, { name: 'Red snake', power: 17 }]
+  params = [{ name: 'Gobbo', power: 13, health: 10 }, { name: 'Red snake', power: 17, health: 13 }]
   params.each do |m|
     monster = Monster.new(m)
     monster.ability_table = AbilityTable.create

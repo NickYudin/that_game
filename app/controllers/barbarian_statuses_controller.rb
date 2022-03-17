@@ -13,7 +13,7 @@ class BarbarianStatusesController < ApplicationController
     else
       @content = 'You feel no rage today. Need some rest...'
     end
-    ChatMessage.call(Chat.first.id, @content)
+    ChatMessage.call(@content)
     redirect_to @room
   end
 
