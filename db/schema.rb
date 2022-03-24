@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_15_091600) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
   create_table "ability_tables", force: :cascade do |t|
     t.integer "strength", default: 10
     t.integer "dexterity", default: 10
@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_091600) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "aasm_state"
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 

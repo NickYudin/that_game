@@ -1,5 +1,7 @@
 <ul id="left_menu" class="nav flex-column">
+
   <% if current_user %>
+
     <% if current_user.character %> 
       <li class="nav-item m-5">
         <img src="<%=check_avatar(current_user.character)%>",  width="250" >
@@ -16,18 +18,28 @@
       <li class="nav-item mb-2">
         <%="EXP #{current_user.character.experiense}" %>
       </li>
+
     <% else %>
+
       <%= button_to "Create character", new_character_path, method: :get %>
+   
     <% end %>
+
   <% else %>
+
     <li class="nav-item">
       <%= link_to "sign in", new_user_session_path %>
-    </li>          
+    </li>  
+
   <% end %>
+
   <% if current_user%>
+    
     <%= turbo_stream_from Chat.first%>
-      <%= turbo_frame_tag Chat.first, target: "_top" do%>
-        <%= render "layouts/logs"%>
-      <% end %>
+    
+    <%= turbo_frame_tag Chat.first, target: "_top" do%>
+      <%= render "layouts/logs"%>
+    <% end %>
+  
   <% end %>
 </ul>

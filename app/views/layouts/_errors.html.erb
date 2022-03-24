@@ -1,0 +1,17 @@
+<% if flash.any? %>
+  <% if flash.notice %>
+    
+    <div  class="alert alert-success"role="alert">
+      <ul>
+        <li> <%= flash.notice %> </li>
+      </ul>
+    </div>
+
+  <% elsif flash.alert %> 
+    
+    <p class="alert alert-danger" role="alert">
+      <%= alert %>
+    </p>
+
+  <% end %>
+<% end %>
