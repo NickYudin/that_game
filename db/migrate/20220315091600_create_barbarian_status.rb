@@ -9,6 +9,6 @@ class CreateBarbarianStatus < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :barbarian_statuses, :characters_id
+    add_index :barbarian_statuses, :character_id
   end
 end
