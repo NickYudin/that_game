@@ -1,12 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
+import Rails from "@rails/ujs";
 
 export default class extends Controller {
   static targets = ["entries", "pagination"]
   
   scroll(){
     
-    let url  = this.paginationTarget.querySelector("a[rel='next']").href
-    
+    let next_page  = this.paginationTarget.querySelector("a[rel='next']")
+    if (next_page == null) { return } 
+
+    let url = next_page.href
+
     var body = document.body,
       html = document.documentElement
 
@@ -22,7 +26,8 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: data => {
-        this.entriesTarget.insertAdjasentHTML('beforeend', data.entries)
+        console.log(data.entries)
+        this.entriesTarget.insertAdjacentHTML("beforeend", data.entries)
         this.paginationTarget.innerHTML = data.pagination
       }
     })

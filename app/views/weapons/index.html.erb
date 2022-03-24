@@ -8,7 +8,9 @@
 </div>
 </br>
 <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
-  <table class="table table-striped mt-5">
+      <div  >
+
+  <table class="table table-striped mt-5" data-target="infinite-scroll.entries">
     <tr>
       <th>
         Name
@@ -29,11 +31,12 @@
         Properties
       </th>
     </tr>
-    <div data-target="infinite-scroll.entries" >
+    <tr>
       <%= render 'weapons/weapons'%>
-    </div>
-  </table> 
-  <div data-infinite-scroll-target="pagination"">
-    <%== will_paginate @weapons %>
+    </tr>
+  </table>
+  
+  <div data-infinite-scroll-target="pagination" class="apple_pagination">
+    <%= will_paginate @weapons %>
   </div>
  </div>

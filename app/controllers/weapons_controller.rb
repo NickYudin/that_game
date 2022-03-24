@@ -6,7 +6,7 @@ class WeaponsController < ApplicationController
     respond_to do |format|
       format.html
       format.json {
-        render json: { entries: render_to_string(partial: "weapons", formats: [html]), pagination: view_context.will_paginate(@weapons) }
+        render json: { entries: render_to_string(partial: "weapons", formats: [:html]), pagination: view_context.will_paginate(@weapons) }
       }
     end
   end
