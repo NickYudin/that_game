@@ -44,7 +44,4 @@ yarn-debug.log*
 
 # ignore secrets
 .env
-#docker launching setup (don't work for now):
-Dockerfile
-docker-compose.yml
-entrypoint.sh
+
