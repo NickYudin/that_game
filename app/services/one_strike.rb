@@ -34,8 +34,12 @@ class OneStrike < ApplicationService
   def dmg(fighter)
     # in feauture with weapon type and dealing damage accouning:
     @dmg = DiceRoller.call(1, 4)
-    @dmg += Rage.call(@character) if fighter == @character && @character.char_class.name == 'Barbarian'
-    @dmg
+    if fighter.class == Character.first.class
+      if fighter.char_class.name == 'Barbarian'
+        @dmg += Rage.call(fighter)
+      end
+    end
+      @dmg
   end
 
   # minimum aarmour class is 10. can be improoved
