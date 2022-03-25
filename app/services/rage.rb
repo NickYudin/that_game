@@ -1,6 +1,6 @@
 class Rage < ApplicationService
   def initialize(character)
-    @status = character.barbarian_status
+    @status = character.status
   end
 
   def call

@@ -23,4 +23,8 @@ class Character < ApplicationRecord
       transitions from: :dead, to: :alive
     end
   end
+
+  def status
+    self.public_send("#{self.char_class.name}" + "_status")
+  end
 end
