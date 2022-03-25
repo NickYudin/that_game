@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_091600) do
     t.bigint "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"characters_id\"", name: "index_barbarian_statuses_on_characters_id"
+    t.index "\"character_id\"", name: "index_barbarian_statuses_on_characters_id"
   end
 
   create_table "char_classes", force: :cascade do |t|

@@ -1,6 +1,6 @@
 <ul id="left_menu" class="nav flex-column">
   <% if current_user %>
-    <% if current_user.character %> 
+    <% if character_exist? %> 
       <li class="nav-item m-5">
         <img src="<%=check_avatar(current_user.character)%>",  width="250" >
       </li>

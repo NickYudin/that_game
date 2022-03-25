@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
 
   # check if user created a character yet
   def character_exist?
-    !current_user.character.nil? if current_user
+    if current_user
+      unless current_user.character.nil?
+        !current_user.character.id.nil?
+      end
+    end  
   end
 
   # cathing the exeption from cancancan
