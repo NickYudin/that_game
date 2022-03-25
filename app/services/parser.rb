@@ -4,11 +4,12 @@ class Parser
   WEAPONS_START_PAGE = 'https://www.dandwiki.com/wiki/5e_SRD:Weapons'.freeze
 
   def initialize(source)
-    if source == 'classes'
+    case source
+    when 'classes'
       start_page = CLASSES_START_PAGE
-    elsif source == 'races'
+    when 'races'
       start_page = RACES_START_PAGE
-    elsif source == 'weapons'
+    when 'weapons'
       start_page = WEAPONS_START_PAGE
     end
     @page = Mechanize.new.get(start_page)
@@ -16,7 +17,7 @@ class Parser
   end
 
   def links
-    @links ||= @page.links.filter_map { |link| link if link.uri.to_s.include?('wiki/5e_SRD:') && link.text.to_s.split(' ').size < 2 && link.text.to_s != 'SRD' }
+    @links ||= @page.links.filter_map { |link| link if link.uri.to_s.include?('wiki/5e_SRD:') && link.text.to_s.split.size < 2 && link.text.to_s != 'SRD' }
   end
 
   def races_data
@@ -125,10 +126,11 @@ class ChRace
     # Sample output => [Your Dexterity score increases by 2, your Charisma score increases by 2]
     @hh = {}
     asi.map do |m|
-      kek = m.split(' ')
-      if kek[1] == 'other'
+      kek = m.split
+      case kek[1]
+      when 'other'
         @special_rule = 'add_free_points'
-      elsif kek[1] == 'ability'
+      when 'ability'
         @hh = {
           strength: 1,
           dexterity: 1,
