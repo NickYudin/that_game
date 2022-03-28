@@ -34,7 +34,7 @@ class OneStrike < ApplicationService
   def dmg(fighter)
     # in feauture with weapon type and dealing damage accouning:
     @dmg = DiceRoller.call(1, 4)
-    @dmg += Rage.call(@character) if fighter == @character && @character.char_class.name == 'Barbarian'
+    @dmg += Rage.call(fighter) if fighter == Character.find(fighter.id) && fighter.char_class.name == 'Barbarian'
     @dmg
   end
 
