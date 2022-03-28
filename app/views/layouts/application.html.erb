@@ -19,22 +19,9 @@
       <div class="col-3 p-5">
         <%= render 'layouts/left_menu' %>
       </div>      
-        <div class="col-8 p-5">
-          <% if flash.any? %>
-            <% if flash.notice %>
-              <div  class="alert alert-success"role="alert">
-                  <ul>
-                      <li> <%= flash.notice %> </li>
-                  </ul>
-              </div>
-            <% elsif flash.alert %> 
-              <p class="alert alert-danger" role="alert"><%= alert %></p>
-            <% end %>
-          <% end %>
-          <Div id="main">
-            <%= yield %>
-          </div>
-        </div>
+      <div class="col p-5">
+        <%= render 'layouts/errors'%>
+        <%= yield %>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

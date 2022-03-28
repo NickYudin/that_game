@@ -6,52 +6,37 @@
     <%= f.submit %>
   <% end %>
 </div>
- </br>
+</br>
+<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+      <div  >
 
-  <table class="table table-striped mt-5">
-  <tr>
-    <th>
-      Name
-    </th>
-    <th>
-      Damage
-    </th>
-    <th>
-      Damage type
-    </th>
-    <th>
-      Cost
-    </th>
-    <th>
-      Weight
-    </th>
-    <th>
-      Properties
-    </th>
-<% @weapons.each do |weapon|%>
+  <table class="table table-striped mt-5" data-target="infinite-scroll.entries">
     <tr>
-      <td>
-        <%= weapon.name.capitalize %>
-      </td>
-      <td>
-        <%= weapon.damage %>
-      </td>
-      <td>
-        <%= weapon.damage_type.name %>
-      </td>
-      <td>
-        <%= weapon.cost %>
-      </td>
-      <td>
-        <%= weapon.weight %>
-      </td>
-      <td>
-        <%= weapon.properties.capitalize %>
-      </td>
-<% end %>
-</table>
-<div class="apple_pagination">
-  <%= will_paginate @weapons %>
-</div>
-
-
+      <th>
+        Name
+      </th>
+      <th>
+        Damage
+      </th>
+      <th>
+        Damage type
+      </th>
+      <th>
+        Cost
+      </th>
+      <th>
+        Weight
+      </th>
+      <th>
+        Properties
+      </th>
+    </tr>
+    <tr>
+      <%= render 'weapons/weapons'%>
+    </tr>
+  </table>
+  
+  <div data-infinite-scroll-target="pagination" class="apple_pagination">
+    <%= will_paginate @weapons %>
+  </div>
+ </div>

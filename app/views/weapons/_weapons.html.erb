@@ -1,0 +1,23 @@
+<% @weapons.each do |weapon|%>
+  <tr>
+    <td>
+      <%= weapon.name.capitalize %>
+    </td>
+    <td>
+      <%= weapon.damage %>
+    </td>
+    <td>
+      <%= weapon.damage_type.name %>
+    </td>
+    <td>
+      <%= weapon.cost %>
+    </td>
+    <td>
+      <%= weapon.weight %>
+    </td>
+    <td>
+      <%= weapon.properties.capitalize %>
+    </td>
+  </tr>
+<% end %>
+

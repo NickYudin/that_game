@@ -34,6 +34,7 @@ body {
   min-height: 100%;
   background: linear-gradient(0.5turn,  #ffffff, rgb(221, 220, 220));
   bottom: 0px;
+  background-attachment: fixed;
   }
 
 .navbar {
@@ -52,7 +53,6 @@ body {
 
   #left_menu{
     position: -webkit-sticky;
-    position: fixed;
     top: 120px;
   }
 
