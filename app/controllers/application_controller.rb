@@ -17,11 +17,7 @@ class ApplicationController < ActionController::Base
 
   # check if user created a character yet
   def character_exist?
-    if current_user
-      unless current_user.character.nil?
-        !current_user.character.id.nil?
-      end
-    end  
+    !current_user.character.id.nil? if current_user && !current_user.character.nil?
   end
 
   # cathing the exeption from cancancan
@@ -42,10 +38,10 @@ class ApplicationController < ActionController::Base
     @character.name || Faker::Games::ElderScrolls.first_name
   end
 
-  #sets buttons for current class in rooms:
+  # sets buttons for current class in rooms:
   def class_feature_view
     character = current_user.character
-    'class_features/' + character.char_class.name.downcase.to_s
+    "class_features/#{character.char_class.name.downcase}"
   end
 
   def progress

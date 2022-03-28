@@ -9,13 +9,13 @@ RSpec.describe Room, type: :model do
   end
   context 'validation tests' do
     it 'ensures presence of description' do
-      room = Room.new(monster_id: 1).save
+      room = described_class.new(monster_id: 1).save
       expect(room).to be(false)
     end
   end
 
   context 'AASM test' do
-    room = Room.create!(description: 'some room', monster_id: 1)
+    room = described_class.create!(description: 'some room', monster_id: 1)
 
     it 'have initial state monster_in' do
       expect(room).to have_state(:monster_in)

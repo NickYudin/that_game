@@ -9,17 +9,17 @@ require 'rails_helper'
 RSpec.describe Monster, type: :model do
   context 'validation tests' do
     it 'ensures presence of name' do
-      monster = Monster.new(power: 1).save
+      monster = described_class.new(power: 1).save
       expect(monster).to be(false)
     end
 
     it 'ensures presence of power' do
-      monster = Monster.new(name: 'monkey').save
+      monster = described_class.new(name: 'monkey').save
       expect(monster).to be(false)
     end
 
     it 'saves successfully' do
-      monster = Monster.new(name: 'monkey', power: 1).save
+      monster = described_class.new(name: 'monkey', power: 1).save
       expect(monster).to be(true)
     end
   end

@@ -9,7 +9,7 @@ class Character < ApplicationRecord
 
   has_one_attached :avatar
 
-  validates :name, :level, :health, :experiense, :user_id, :char_class_id, presence: true
+  validates :name, :level, :health, :experiense, presence: true
 
   aasm do
     state :alive, initial: true
@@ -25,6 +25,6 @@ class Character < ApplicationRecord
   end
 
   def status
-    self.public_send("#{self.char_class.name.downcase}" + "_status")
+    public_send("#{char_class.name.downcase}_status")
   end
 end

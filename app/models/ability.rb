@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,11 +5,11 @@ class Ability
     # Define abilities for the passed in user here.
     user ||= User.new # guest user (not logged in)
 
-    if user  .is_admin?
+    if user.is_admin?
       can :manage, :all
-      else
-        can :read, :all
-        can :manage, Character , user: user
+    else
+      can :read, :all
+      can :manage, Character, user: user
     end
 
     #

@@ -15,6 +15,6 @@ class Features < ApplicationService
 
   # adds classname to path:
   def path(char_class)
-    './public/tables/features/' + char_class + '.ods'
+    "./public/tables/features/#{char_class}.ods"
   end
 end
