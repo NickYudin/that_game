@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :devise_controller?
   # before_action :character_exist?
 
-  helper_method :next_room, :character_exist?, :random_name, :check_avatar, :class_feature_view, :progress
+  helper_method :next_room, :character_exist?, :random_name, :check_avatar, :class_feature_view, :progress, :character
+
+  def character
+    current_user.character
+  end
 
   def check_avatar(character)
     url_for(character.avatar)
@@ -44,8 +48,8 @@ class ApplicationController < ActionController::Base
     "class_features/#{character.char_class.name.downcase}"
   end
 
-  def progress
-    progress = current_user.character.health.to_f / current_user.character.max_health * 100
+  def progress(current, needs)
+    progress = current.to_f / needs * 100
     progress > 0 ? progress : 0
   end
 end

@@ -30,6 +30,8 @@ hit_dices = HitDice.create([
                              { face: 20 }
                            ])
 
+ExperienceRequirement.create(ExpReq.call)
+
 Rails.logger.debug 'creating classes...'
 char_classes = CharClass.create([Parser.new('classes').chars_data])
 

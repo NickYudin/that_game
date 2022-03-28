@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_135843) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ability_tables", force: :cascade do |t|
     t.integer "strength", default: 10
     t.integer "dexterity", default: 10
@@ -26,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -46,9 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "admin_and_another_roles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "barbarian_features", force: :cascade do |t|
@@ -68,7 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
     t.bigint "character_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"character_id\"", name: "index_barbarian_statuses_on_characters_id"
+    t.index ["character_id"], name: "index_barbarian_statuses_on_characters_id"
   end
 
   create_table "char_classes", force: :cascade do |t|
@@ -91,7 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
     t.integer "max_health", default: 0
     t.integer "race_id"
     t.string "aasm_state"
-    t.bigint "ability_table_id"
+    t.integer "ability_table_id"
     t.index ["ability_table_id"], name: "index_characters_on_ability_table_id"
     t.index ["char_class_id"], name: "index_characters_on_char_class_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
@@ -110,6 +118,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["weapons_id"], name: "index_damage_types_on_weapons_id"
+  end
+
+  create_table "experience_requirements", force: :cascade do |t|
+    t.integer "level"
+    t.integer "experience"
+    t.integer "proficiency_bonus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hit_dices", force: :cascade do |t|
@@ -132,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_18_125419) do
     t.integer "power"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "heatth", default: 7
     t.integer "health", default: 7
     t.integer "max_health", default: 10
     t.bigint "ability_table_id"

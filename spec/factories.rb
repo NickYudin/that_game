@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :messages do
-    
   end
 
   factory :user do
@@ -24,11 +23,10 @@ FactoryBot.define do
 
   factory :char_class do
     id { 1 }
-    name { "Barbarian" }
+    name { 'Barbarian' }
     hit_dice_id { 5 }
   end
 
   factory :barbarian_status do
-    
   end
 end
