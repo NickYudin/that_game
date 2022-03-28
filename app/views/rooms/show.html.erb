@@ -15,23 +15,20 @@
     </p>
     <%= render class_feature_view %> 
     <% if !@room.in_action?%>
-      <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
+      <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
         Attack!
       <% end %>
     <% elsif @room.in_action? %>
-      <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
+      <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
         Attack!
       <% end %>
-      <%= button_to [:strike], class: "btn-danger rounded shadow" do%>
-        hit again
-      <% end %>
       </br>
-      <%= button_to [:run], class: "btn-secondary rounded shadow" do%>
+      <%= button_to [:run], class: "room_btn btn-secondary rounded shadow" do%>
         run
       <% end %>
     <% end %>
   <% elsif current_user.character.dead?%>
-      <%= link_to "go home", character_path(current_user.character), class:"btn btn-dark shadow" %>
+      <%= link_to "go home", character_path(current_user.character), class:"room_btn btn btn-dark shadow" %>
   <%else%>
       <p>
         <strong>There are no monster</strong>
@@ -39,9 +36,12 @@
   <% end %>
 
 <% if @room.monster_defeated? %>
-  <%= button_to "Next", next_room, method: :get, class:"btn btn-dark shadow" %>
-  <%= button_to [:rest], class:"btn btn-dark shadow" do%>
+  <%= button_to "Next", next_room, method: :get, class:"room_btn btn btn-dark shadow" %>
+  <%= button_to [:rest], class:"room_btn btn btn-dark shadow" do%>
     Short rest
+  <% end %>
+  <%= button_to [:long_rest], class: "room_btn btn-success rounded shadow btn-lg" do%>
+    long rest
   <% end %>
 <% end %>
 </br>

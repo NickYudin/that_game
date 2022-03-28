@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: %i[show edit update destroy fight restore rest rage run]
+  before_action :set_room, only: %i[show edit update destroy fight restore rest long_rest run]
   before_action :restore, only: :show
-  before_action :set_character, only: %i[rest rage]
+  before_action :set_character, only: %i[rest long_rest]
   before_action :set_fighters, only: %i[fight strike run]
 
   # GET /rooms or /rooms.json
@@ -69,7 +69,15 @@ class RoomsController < ApplicationController
     redirect_to @room if @character.save && @room.save
   end
 
-  def strike
+  def long_rest
+    @character.health = @character.max_health
+    @character.status.set_default
+    if @character.save
+      # need to setup websocket for not to receive messages twice
+      ChatMessage.call('You had some food and realy good sleep. It feels like you refreshed!')
+      redirect_to @room
+    end
+    # need to add limit for long rest (1.times/day)
   end
 
   def run

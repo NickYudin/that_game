@@ -15,11 +15,6 @@
 
 
  */
-/* 
-turbo-frame {
-   display: block;
-   border: 1px solid blue;
-  } */
 
   #left_menu {
     width: 17%;
@@ -88,4 +83,10 @@ body {
 }
   .apple_pagination a:hover, .apple_pagination a:focus {
     text-decoration: underline; 
+}
+
+.room_btn{
+  height: 50px;
+  width: 130px;
+  margin: 10px;
 }
