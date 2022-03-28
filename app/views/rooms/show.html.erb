@@ -1,6 +1,6 @@
 <%= render @room %>
 
-  <% if !@room.monster_defeated? && current_user.character.alive?%>
+  <% if !@room.monster_defeated? && character.alive?%>
     <% if !@room.in_action? %>
       <% @room.monster.health = @room.monster.max_health %>
       <% @room.monster.save %>
@@ -27,8 +27,8 @@
         run
       <% end %>
     <% end %>
-  <% elsif current_user.character.dead?%>
-      <%= link_to "go home", character_path(current_user.character), class:"room_btn btn btn-dark shadow" %>
+  <% elsif character.dead?%>
+      <%= link_to "go home", character_path(character), class:"room_btn btn btn-dark shadow" %>
   <%else%>
       <p>
         <strong>There are no monster</strong>

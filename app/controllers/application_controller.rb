@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :next_room, :character_exist?, :random_name, :check_avatar, :class_feature_view, :progress, :character
 
-  def character
-    current_user.character
-  end
+  delegate :character, to: :current_user
 
   def check_avatar(character)
     url_for(character.avatar)

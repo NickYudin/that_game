@@ -1,4 +1,4 @@
-<% if !current_user.character.status.rage_active?%>
+<% if !character.status.rage_active?%>
   <%= button_to [:rage], class: "room_btn btn-dark rounded shadow" do%>
     RAGE!!! 
   <% end %>

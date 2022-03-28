@@ -34,6 +34,7 @@ class Character < ApplicationRecord
     if experiense >= ExperienceRequirement.find_by(level: (@level + 1))[:experience]
       @level += 1
       update(level: @level)
+      ChatMessage.call("Level up! Now you are #{@level} level!")
     end
   end
 end
