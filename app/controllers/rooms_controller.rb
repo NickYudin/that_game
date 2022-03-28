@@ -82,7 +82,10 @@ class RoomsController < ApplicationController
 
   def rest
     @character.health = HitIncrease.call(@character)
-    redirect_to @room if @character.save
+    if @character.save
+      ChatMessage.call("You feel better after some rest!")
+      redirect_to @room
+    end
   end
 
   private

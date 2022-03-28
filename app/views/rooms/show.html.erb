@@ -2,8 +2,8 @@
 
   <% if !@room.monster_defeated? && current_user.character.alive?%>
     <% if !@room.in_action? %>
-    <% @room.monster.health = @room.monster.max_health %>
-    <% @room.monster.save %>
+      <% @room.monster.health = @room.monster.max_health %>
+      <% @room.monster.save %>
     <% end %>
     
     <p>
@@ -13,7 +13,7 @@
         health: <%= @room.monster.health %>
       </div>
     </p>
-    <%= render class_feature_view %>
+    <%= render class_feature_view %> 
     <% if !@room.in_action?%>
       <%= button_to [:fight], class: "btn-danger rounded shadow" do%>
         Attack!
@@ -29,13 +29,13 @@
       <%= button_to [:run], class: "btn-secondary rounded shadow" do%>
         run
       <% end %>
-    <% elsif !@room.monster_defeated? && current_user.character.dead?%>
-        <%= link_to "go home", character_path(current_user.character), class:"btn btn-dark shadow" %>
-    <%else%>
+    <% end %>
+  <% elsif current_user.character.dead?%>
+      <%= link_to "go home", character_path(current_user.character), class:"btn btn-dark shadow" %>
+  <%else%>
       <p>
         <strong>There are no monster</strong>
       </p>
-    <% end %>
   <% end %>
 
 <% if @room.monster_defeated? %>
@@ -55,5 +55,5 @@
 
     <%= button_to "Destroy this room", @room, method: :delete %>
   </div>
+  <%= link_to "Back to rooms", rooms_path %>
 <% end %>
-<%= link_to "Back to rooms", rooms_path %>

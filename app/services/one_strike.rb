@@ -38,6 +38,7 @@ class OneStrike < ApplicationService
       @dmg += Rage.call(fighter) 
     end
     @dmg
+
   end
 
   # minimum aarmour class is 10. can be improoved

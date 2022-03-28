@@ -14,8 +14,13 @@
         <%= "LVL #{current_user.character.level}" %>
       </li>
       <li class="nav-item">
-        <%= "HP  #{current_user.character.health}" %>
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%= progress %>%;">
+            <%= "#{current_user.character.health} / #{current_user.character.max_health} HP" %>
+          </div>
+        </div>
       </li>
+      
       <li class="nav-item mb-2">
         <%="EXP #{current_user.character.experiense}" %>
       </li>

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :devise_controller?
   # before_action :character_exist?
 
-  helper_method :next_room, :character_exist?, :random_name, :check_avatar, :class_feature_view
+  helper_method :next_room, :character_exist?, :random_name, :check_avatar, :class_feature_view, :progress
 
   def check_avatar(character)
     url_for(character.avatar)
@@ -42,8 +42,14 @@ class ApplicationController < ActionController::Base
     @character.name || Faker::Games::ElderScrolls.first_name
   end
 
+  #sets buttons for current class in rooms:
   def class_feature_view
     character = current_user.character
     'class_features/' + character.char_class.name.downcase.to_s
+  end
+
+  def progress
+    progress = current_user.character.health.to_f / current_user.character.max_health * 100
+    progress > 0 ? progress : 0
   end
 end

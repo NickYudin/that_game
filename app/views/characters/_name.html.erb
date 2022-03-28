@@ -2,6 +2,8 @@
 
   <%= character.name %>
   
-  <%= link_to "Change name", character_edit_name_path(character), character: character, class:"btn-sm btn-warning" %>
-
+  <% if can? :manage, character%>
+    <%= link_to "Change name", character_edit_name_path(character), character: character, class:"btn-sm btn-warning" %>
+  <% end %>
+  
 <% end %>
