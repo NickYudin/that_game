@@ -7,6 +7,8 @@ class Character < ApplicationRecord
   belongs_to :ability_table, dependent: :destroy
   has_one :barbarian_status
   after_save :level_up
+  has_many :items
+  has_many :weapons, through: :items
 
   has_one_attached :avatar
 

@@ -23,6 +23,12 @@
     </div>
   </div>
 </div>
+
+<% @character.weapons.each do |weapon| %>
+  <div>
+    <%= render 'weapons/weapon', weapon: weapon%>
+  </div>
+<% end %>
 <% if @character.dead?%>
   <div class="p-5">
     <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-lg" %>

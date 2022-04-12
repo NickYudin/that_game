@@ -10,4 +10,13 @@ class WeaponsController < ApplicationController
       end
     end
   end
+
+  def show
+    @weapon = Weapon.find(params[:id])
+  end
+
+  def add_weapon
+    item = Item.create(weapon_id: params[:id], character_id: character.id)
+    redirect_to character if item.save
+  end
 end

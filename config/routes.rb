@@ -28,4 +28,8 @@ Rails.application.routes.draw do
 
   # button to increase skills:
   post 'ability_tables/:id/add_point' => 'ability_tables#add_point', as: 'add_point'
+
+  #button for weapon:
+  post 'weapons/:id/add_weapon' => 'weapons#add_weapon', as: 'add_weapon'
+
 end
