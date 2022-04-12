@@ -1,25 +1,45 @@
-<%= form_with(model: character) do |form| %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, value: random_name%>
-  </div>
+<script>
+  function getRandomName(){ 
+    document.getElementById('charName').value="<%= random_name %>"
+    console.log('ad')
+  }
+  // then need to add api or js module to generate new random name each time
+</script>
 
- 
-  <div>
-    <%= form.select :char_class_id,  CharClass.all.map {|clas| [clas.name, clas.id]}, {} %>
-  </div>
-  <div>
-    <%= form.select :race_id,  Race.all.map {|race| [race.name, race.id]}, {} %>
-  </div>
-  <div>
-    <%= form.hidden_field :user_id, value: current_user.id   %>
-  </div>
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
+<button id="randButton", class="btn btn-default">Random</button>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+
+<script>
+  randButton.onclick = getRandomName
+</script>
+
+
+<div id="charForm">
+  <%= form_with(model: character) do |form| %>
+    <div>
+      <%= form.label :name, style: "display: block" %>
+      <%= form.text_field :name, value: random_name, id: "charName"%>
+    </div>
+  
+    <div>
+      <%= form.select :char_class_id,  CharClass.all.map {|clas| [clas.name, clas.id]}, {} %>
+    </div>
+    <div>
+      <%= form.select :race_id,  Race.all.map {|race| [race.name, race.id]}, {} %>
+    </div>
+    <div>
+      <%= form.hidden_field :user_id, value: current_user.id   %>
+    </div>
+    <div class="field">
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+    <div>
+      <button type="reset" onclick="getRandomName" > Reset form </button>
+    </div>
+  <% end %>
+</div>
