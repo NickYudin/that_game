@@ -31,12 +31,24 @@ class Character < ApplicationRecord
     public_send("#{char_class.name.downcase}_status")
   end
 
+  def features
+    public_send("#{char_class.name}Feature")
+  end
+
   def level_up
     @level = level
     if experiense >= ExperienceRequirement.find_by(level: (@level + 1))[:experience]
       @level += 1
       update(level: @level)
-      ChatMessage.call("Level up! Now you are #{@level} level!")
+      ChatMessage.call("Level up! Now you are at #{@level} level!")
+      update_features
     end
+  end
+
+  def update_features
+    b = BarbarianFeature.find_by(level: level)
+    hh = { max_rages: b.rages, rage_damage: b.rage_damage}
+    status.update(hh)
+    status.set_default
   end
 end
