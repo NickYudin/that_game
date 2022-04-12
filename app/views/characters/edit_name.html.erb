@@ -1,10 +1,9 @@
 <%= turbo_frame_tag "name" do%>
 
   <%= form_with(model: @character) do |f| %>
-    
+    <div id="name">
       <%= f.text_field :name, value: random_name%>
-
+    </div>
       <%= f.submit%>
-
   <% end %>
 <% end %>

@@ -6,7 +6,6 @@
 	+ add last_room for starting with last visited room on click 'jorney'
 		remove this functionality to character model
 	+ add character_exist? method
-- add scopes for users
 - replase links(room/1 etc) to generic
 + add stats
 	+ add modificator method
