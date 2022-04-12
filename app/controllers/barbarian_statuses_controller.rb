@@ -17,6 +17,9 @@ class BarbarianStatusesController < ApplicationController
     redirect_to @room
   end
 
+  def set_default
+  end
+
   private
 
   def set_room

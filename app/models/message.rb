@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   belongs_to :chat
   broadcasts_to :chat
-  
+
   aasm do
     state :new, initial: true
     state :resent
@@ -12,5 +12,4 @@ class Message < ApplicationRecord
       transitions from: :new, to: :resent
     end
   end
-
 end

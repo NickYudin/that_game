@@ -28,9 +28,9 @@
           </li>
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <% if current_user.character %>
+          <% if character %>
             <li class="nav-item">
-              <%= link_to "Your character",  current_user.character, class:"nav-link active" %>
+              <%= link_to "Your character",  character, class:"nav-link active" %>
             </li>
           <% else %>
             <%= link_to "Create character", new_character_path, class:"nav-link active" %>

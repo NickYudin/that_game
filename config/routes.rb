@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   # buttons in fight:
   post 'rooms/:id/fight' => 'rooms#fight', as: 'fight'
-  post 'rooms/:id/strike' => 'rooms#strike', as: 'strike'
+  post 'rooms/:id/long_rest' => 'rooms#long_rest', as: 'long_rest'
   post 'rooms/:id/run' => 'rooms#run', as: 'run'
   post 'rooms/:id/rest' => 'rooms#rest', as: 'rest'
 

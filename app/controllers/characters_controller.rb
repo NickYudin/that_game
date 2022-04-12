@@ -1,7 +1,6 @@
 class CharactersController < ApplicationController
   load_and_authorize_resource
   before_action :set_character, only: %i[show edit update destroy set_stats set_abilities class_status]
-
   # GET /characters or /characters.json
   def index
     @characters = Character.all
