@@ -1,42 +1,23 @@
 <div id="search">
   <%= search_form_for @q do |f| %>
-
     <%= f.search_field :name_cont %>
-
     <%= f.submit %>
   <% end %>
 </div>
 </br>
 <div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
-      <div  >
-
   <table class="table table-striped mt-5" data-target="infinite-scroll.entries">
     <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Damage
-      </th>
-      <th>
-        Damage type
-      </th>
-      <th>
-        Cost
-      </th>
-      <th>
-        Weight
-      </th>
-      <th>
-        Properties
-      </th>
+      <th>Name</th>
+      <th>Damage</th>
+      <th>Damage type</th>
+      <th>Cost</th>
+      <th>Weight</th>
+      <th>Properties</th>
     </tr>
-    <tr>
-      <%= render 'weapons/weapons'%>
-    </tr>
+    <%= render 'weapons/weapons'%>
   </table>
-  
   <div data-infinite-scroll-target="pagination" class="apple_pagination">
     <%= will_paginate @weapons %>
   </div>
- </div>
+</div>

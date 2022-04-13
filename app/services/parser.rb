@@ -128,8 +128,10 @@ class ChRace
     asi.map do |m|
       kek = m.split
       case kek[1]
+      #rudiment case (now this functional for half-elves realized in characters_controller.rb):
       when 'other'
         @special_rule = 'add_free_points'
+      #for human race all attributes increase by 1 :
       when 'ability'
         @hh = {
           strength: 1,
@@ -139,6 +141,7 @@ class ChRace
           wisdom: 1,
           charisma: 1
         }
+        #for all another races creates hash of increased parameters:
       else
         @hh[kek[1].downcase.to_sym] = kek.last.to_i
       end

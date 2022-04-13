@@ -1,40 +1,27 @@
 <div id="<%= dom_id character %>">
-    <p>
-      <%= turbo_frame_tag "name" do%>
-        <%= render 'name', character: character%>
-      <% end %>
-    <p>
-        <strong>Class:</strong>
-        <%= character.char_class.name %>
-    </p>
-    <p>
-        <strong>Race:</strong>
-        <%= character.race.name %>
-    </p>
-
-    <p>
-        <img src="<%=check_avatar(character)%>",  width="100" >
-    </p>
-
   <p>
-    <strong>Level:</strong>
-    <%= character.level %>
-  </p>
-
-
+    <%= turbo_frame_tag "name" do%>
+      <%= render 'name', character: character%>
+    <% end %>
   <p>
-    <strong>Max HP:</strong>
-    <%= character.max_health %>
+      <strong>Class:</strong> <%= character.char_class.name %>
   </p>
-
   <p>
-    <strong>Current HP:</strong>
-    <%= character.health %>
+      <strong>Race:</strong> <%= character.race.name %>
   </p>
-
   <p>
-    <strong>EXP:</strong>
-    <%= character.experiense %>
+      <img src="<%=check_avatar(character)%>",  width="100" >
   </p>
-
+  <p>
+    <strong>Level:</strong> <%= character.level %>
+  </p>
+  <p>
+    <strong>Max HP:</strong> <%= character.max_health %>
+  </p>
+  <p>
+    <strong>Current HP:</strong> <%= character.health %>
+  </p>
+  <p>
+    <strong>EXP:</strong> <%= character.experiense %>
+  </p>
 </div>

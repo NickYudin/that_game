@@ -35,11 +35,7 @@ class AliveCheck < ApplicationService
   private
 
   def find_user(fighter, opponent)
-    if fighter.instance_of?(Character.first.class)
-      fighter.user
-    else
-      opponent.user
-    end
+    fighter.instance_of?(Character.first.class) ? fighter.user : opponent.user
   end
 
   def message

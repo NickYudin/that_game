@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg  navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">A Game</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -21,8 +19,8 @@
           <% end %>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% if current_user %>
+      <% if current_user %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item text-sm">
             <%= current_user.email %>
           </li>
@@ -35,15 +33,17 @@
           <% else %>
             <%= link_to "Create character", new_character_path, class:"nav-link active" %>
           <% end %>
-        <% else %>
+          <li class="nav-item">
+            <%= link_to "sign out", destroy_user_session_path, method: :delete, class:"nav-link active" %>
+          </li>
+        </ul> 
+      <% else %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <%= link_to "sign in", new_user_session_path, class:"nav-link active" %>
           </li>          
-        <% end %>
-        <li class="nav-item">
-          <%= link_to "sign out", destroy_user_session_path, method: :delete, class:"nav-link active" %>
-        </li>
-      </ul>
+        </ul>
+      <% end %>
     </div>
   </div>
 </nav>
