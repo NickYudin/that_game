@@ -33,11 +33,17 @@ class OneStrike < ApplicationService
 
   def dmg(fighter)
     # in feauture with weapon type and dealing damage accouning:
-    @dmg = DiceRoller.call(1, 4)
-    @dmg += Rage.call(fighter) if fighter.instance_of?(Character.first.class) && (fighter.char_class.name == 'Barbarian')
-    @dmg
+    if fighter.instance_of?(Character.first.class)
+      @dmg =  weapon_damage(fighter) 
+      @dmg += Rage.call(fighter) if (fighter.char_class.name == 'Barbarian')
+    end
+    @dmg || DiceRoller.call(1, 4) 
   end
 
+  def weapon_damage(fighter)
+    damage = Weapon.find(fighter.items.active_weapon.first.weapon_id).damage.split('d') 
+    DiceRoller.call(damage[0].to_i, damage[1].to_i) + 2 #fighter.status.proficiency_bonus
+  end
   # minimum aarmour class is 10. can be improoved
   # with putting up armours or increasing constitution
   def armour_class(fighter)

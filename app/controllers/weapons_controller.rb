@@ -17,6 +17,6 @@ class WeaponsController < ApplicationController
 
   def add_weapon
     item = Item.create(weapon_id: params[:id], character_id: character.id)
-    redirect_to character if item.save
+    item.save
   end
 end

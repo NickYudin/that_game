@@ -90,3 +90,8 @@ body {
   width: 130px;
   margin: 10px;
 }
+
+select {
+  margin: 10px;
+  margin-left: 15px;
+}

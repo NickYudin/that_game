@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_28_135843) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_12_094805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -132,6 +132,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_135843) do
     t.integer "face"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "weapon_id"
+    t.integer "durability", default: 100
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "aasm_state"
+    t.index ["character_id"], name: "index_items_on_character_id"
+    t.index ["weapon_id"], name: "index_items_on_weapon_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -257,6 +268,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_135843) do
     t.string "cost"
     t.string "weight"
     t.string "properties"
+    t.string "aasm_state"
     t.index ["damage_type_id"], name: "index_weapons_on_damage_type_id"
   end
 

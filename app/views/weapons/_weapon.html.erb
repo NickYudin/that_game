@@ -8,14 +8,22 @@
     <td>
       <%= weapon.damage_type.name %>
     </td>
-    <td>
+    <td width="60px">
       <%= weapon.cost %>
     </td>
-    <td>
+    <td width="60px">
       <%= weapon.weight %>
     </td>
     <td>
       <%= weapon.properties.capitalize %>
+    </td>
+    <td>
+      <%= button_to weapon_change(weapon), { 
+                            :controller => "items",
+                            :action => "use_weapon",
+                            :weapon_id => weapon.id
+                          }, 
+                          :model => @item, :method=>:post, class: "btn-sm rounded"  %>  
     </td>
   </tr>
 
