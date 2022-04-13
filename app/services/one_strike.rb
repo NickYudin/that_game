@@ -42,7 +42,7 @@ class OneStrike < ApplicationService
 
   def weapon_damage(fighter)
     damage = Weapon.find(fighter.items.active_weapon.first.weapon_id).damage.split('d') 
-    DiceRoller.call(damage[0].to_i, damage[1].to_i) + 2 #fighter.status.proficiency_bonus
+    DiceRoller.call(damage[0].to_i, damage[1].to_i) + fighter.status.proficiency_bonus
   end
   # minimum aarmour class is 10. can be improoved
   # with putting up armours or increasing constitution

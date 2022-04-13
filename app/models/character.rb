@@ -48,7 +48,7 @@ class Character < ApplicationRecord
 
   def update_features
     b = BarbarianFeature.find_by(level: level) #need to correct method for all classes
-    hh = { max_rages: b.rages, rage_damage: b.rage_damage }
+    hh = { max_rages: b.rages, rage_damage: b.rage_damage, proficiency_bonus: b.proficiency_bonus}
     status.update(hh)
     status.set_default
   end

@@ -1,9 +1,3 @@
 <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
   Attack!
-<% end %>
-<%= form_with(model: character) do |f| %>  
-  <div>
-  This feauture wil be avaiable soon:
-    <%= f.select :weapons,  character.weapons.map {|race| [race.name, race.id]}, {} %>
-  </div>
-<% end %>
+<% end %> Your weopon: <strong><%=Weapon.find(character.items.active_weapon.first.weapon_id).name %></strong>
