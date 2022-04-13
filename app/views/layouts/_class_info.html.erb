@@ -1,0 +1,21 @@
+<li class="nav-item m-5">
+  <img src="<%=check_avatar(character)%>",  width="250" >
+</li>
+  <li class="nav-item text-center">
+  <%= "#{character.race.name.downcase} - #{character.char_class.name.downcase} #{character.name}" %>
+</li>
+<li class="nav-item">
+  <%= "LVL #{character.level}" %>
+    <div class="progress">
+    <div class="progress-bar bg-warning" role="progressbar" style="width: <%= exp_progress %>%;">
+      <%= "#{character.experiense} / #{exp_req} EXP" %>
+    </div>
+  </div>
+</li>
+<li class="nav-item">
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: <%= hp_progress %>%;">
+      <%= "#{character.health} / #{character.max_health} HP" %>
+    </div>
+  </div>
+</li>

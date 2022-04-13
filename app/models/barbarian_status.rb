@@ -2,8 +2,8 @@ class BarbarianStatus < ApplicationRecord
   belongs_to :character
 
   def set_default
-    current_rages = max_rages
-    rage_active = false
+    self.current_rages = max_rages
+    self.rage_active = false
     save!
   end
 end

@@ -1,52 +1,22 @@
 <ul id="left_menu" class="nav flex-column">
 
   <% if current_user %>
-
     <% if character_exist? %> 
-
-      <li class="nav-item m-5">
-        <img src="<%=check_avatar(character)%>",  width="250" >
-      </li>
-       <li class="nav-item text-center">
-        <%= "#{character.race.name.downcase} - #{character.char_class.name.downcase} #{character.name}" %>
-      </li>
-      <li class="nav-item">
-        <%= "LVL #{character.level}" %>
-          <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= progress(character.experiense, ExperienceRequirement.find_by(level: (character.level + 1))[:experience]) %>%;">
-            <%= "#{character.experiense} / #{ExperienceRequirement.find_by(level: (character.level + 1))[:experience]} EXP" %>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: <%= progress(character.health, character.max_health) %>%;">
-            <%= "#{character.health} / #{character.max_health} HP" %>
-          </div>
-        </div>
-      </li>
-
+      <%= render 'layouts/class_info' %>
     <% else %>
-
       <%= button_to "Create character", new_character_path, method: :get %>
-   
     <% end %>
-
   <% else %>
-
     <li class="nav-item">
       <%= link_to "sign in", new_user_session_path %>
     </li>  
-
   <% end %>
 
   <% if current_user%>
-    
     <%= turbo_stream_from Chat.first%>
     
     <%= turbo_frame_tag Chat.first, target: "_top" do%>
       <%= render "layouts/logs"%>
     <% end %>
-  
   <% end %>
 </ul>

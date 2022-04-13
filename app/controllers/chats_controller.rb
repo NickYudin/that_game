@@ -7,8 +7,7 @@ class ChatsController < ApplicationController
   end
 
   # GET /chats/1 or /chats/1.json
-  def show
-  end
+  def show; end
 
   # GET /chats/new
   def new
@@ -16,8 +15,7 @@ class ChatsController < ApplicationController
   end
 
   # GET /chats/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /chats or /chats.json
   def create

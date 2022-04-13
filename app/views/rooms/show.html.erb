@@ -15,20 +15,15 @@
     </p>
     <%= render class_feature_view %> 
     <% if !@room.in_action?%>
-      <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
-        Attack!
-      <% end %>
+      <%= render 'rooms/attack_button'%>
     <% elsif @room.in_action? %>
-      <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
-        Attack!
-      <% end %>
-      </br>
+      <%= render 'rooms/attack_button'%>
       <%= button_to [:run], class: "room_btn btn-secondary rounded shadow" do%>
         run
       <% end %>
     <% end %>
   <% elsif character.dead?%>
-      <%= link_to "go home", character_path(character), class:"room_btn btn btn-dark shadow" %>
+      <%= link_to "go home", character_path(character), class:"room_btn btn-dark shadow" %>
   <%else%>
       <p>
         <strong>There are no monster</strong>

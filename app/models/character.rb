@@ -6,13 +6,14 @@ class Character < ApplicationRecord
   belongs_to :race
   belongs_to :ability_table, dependent: :destroy
   has_one :barbarian_status
-  after_save :level_up
   has_many :items
   has_many :weapons, through: :items
 
   has_one_attached :avatar
 
   validates :name, :level, :health, :experiense, presence: true
+
+  after_save :level_up
 
   aasm do
     state :alive, initial: true
@@ -46,8 +47,8 @@ class Character < ApplicationRecord
   end
 
   def update_features
-    b = BarbarianFeature.find_by(level: level)
-    hh = { max_rages: b.rages, rage_damage: b.rage_damage}
+    b = BarbarianFeature.find_by(level: level) #need to correct method for all classes
+    hh = { max_rages: b.rages, rage_damage: b.rage_damage }
     status.update(hh)
     status.set_default
   end

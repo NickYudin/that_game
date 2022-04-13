@@ -1,7 +1,5 @@
 FactoryBot.define do
-  factory :messages do
-  end
-
+  
   factory :user do
     email { Faker::Internet.email }
     password { '123456' }
@@ -27,6 +25,4 @@ FactoryBot.define do
     hit_dice_id { 5 }
   end
 
-  factory :barbarian_status do
-  end
 end

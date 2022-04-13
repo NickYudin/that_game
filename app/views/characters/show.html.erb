@@ -1,16 +1,12 @@
 <div class="row p-3">
   <div class="col shadow p-3">
     <div class="row">
-      <div class="col ">
+      <div class="col">
         <%= render @character %>
       </div>
       <div>
         <%= turbo_frame_tag @character.ability_table do %> 
-          <% if @character.ability_table.free_points > 0%> 
-            <%= render  'ability_tables/form', ability_table: @character.ability_table, character: @character %>
-          <% else %>
-            <%= render  'ability_tables/ability_table', ability_table: @character.ability_table %>
-          <% end %>
+          <%= render  view_for_a_t, ability_table: character.ability_table%>
         <% end %>    
       </div>
     </div>
@@ -23,18 +19,17 @@
     </div>
   </div>
 </div>
+<table class="table table-striped w-50">
+<th> Your weapons: </th>
+  <% @character.items.filter_map do |weapon| %>
+      <div>
+        <% if !weapon.weapon_id.nil? %>
+          <%= render 'weapons/weapon', weapon: Weapon.find(weapon.weapon_id) %>
+        <% end %>
+      </div>
+  <% end %>
+</table>
 
-<% @character.weapons.each do |weapon| %>
-  <div>
-    <%= render 'weapons/weapon', weapon: weapon%>
-  </div>
-<% end %>
-<% if @character.dead?%>
   <div class="p-5">
-    <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-lg" %>
+    <%= button_to "Let him gone", @character, method: :delete, class: delete_button %>
   </div>
-<% else %>
-  <div class="p-5">
-    <%= button_to "Let him gone", @character, method: :delete, class: "btn-outline btn-danger shadow rounded-5 btn-sm" %>
-  </div>
-<% end %>

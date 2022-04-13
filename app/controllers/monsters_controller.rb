@@ -16,8 +16,7 @@ class MonstersController < ApplicationController
   end
 
   # GET /monsters/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /monsters or /monsters.json
   def create
