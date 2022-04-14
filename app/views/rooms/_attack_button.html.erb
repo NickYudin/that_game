@@ -1,3 +1,8 @@
 <%= button_to [:fight], class: "room_btn btn-danger rounded shadow btn-lg" do%>
   Attack!
-<% end %> Your weopon: <strong><%=Weapon.find(character.items.active_weapon.first.weapon_id).name %></strong>
+<% end %>
+
+<%= form_with url: use_weapon_path, method: :post do |f| %>  
+    <%= f.select :weapon_id,  character.weapons.map {|weapon| [weapon.name, weapon.id]}, {} %>
+    <%= f.submit%>
+<% end %>
