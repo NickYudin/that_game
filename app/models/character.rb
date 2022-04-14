@@ -40,7 +40,8 @@ class Character < ApplicationRecord
     @level = level
     if experiense >= ExperienceRequirement.find_by(level: (@level + 1))[:experience]
       @level += 1
-      update(level: @level)
+      hp = max_health + HitIncrease.call(self)
+      update(level: @level, max_health: hp)
       ChatMessage.call("Level up! Now you are at #{@level} level!")
       update_features
     end
